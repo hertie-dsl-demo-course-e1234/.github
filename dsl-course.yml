@@ -1,0 +1,53 @@
+org: hertie-dsl-demo-course-e1234
+org_name: DSL Demo Course
+course_name: Deep Learning (Demo)
+course_code: E1234
+
+# This is the persistent COURSE org - it spans many cohorts (years). Cohorts are
+# registered separately in .github/cohort-courses-pages.yml. The schedule changes
+# year to year, so it's declared PER COHORT in that cohort's own
+# classroom-config/schedule.yml, not here.
+
+# course_admins GRANTS ACCESS - the single source of truth for course-wide admin
+# (applied here AND mirrored into every cohort org). Optional start/end bound it.
+#
+# instructors/teaching_assistants below are DISPLAY ONLY at this level: cards for
+# the optional PUBLIC course site. Real per-cohort push access is declared in each
+# cohort's own classroom-config/people.yml.
+#
+# `photo` takes EITHER an absolute URL on a host that ALLOWS HOTLINKING (GitHub
+# avatars always do), OR a site-relative path to an image committed into the site
+# repo under `_images/pp/`. Institutional profile sites often return 403 to
+# off-site requests, which renders as a broken image - host those locally.
+# DEMO DATA: demo people entries carry NO github_handle - a card is built from this
+# file, not from GitHub, so display works without one, and the sync never tries to
+# add (and therefore invite) a made-up account. Add a github_handle to actually
+# grant access.
+people:
+  course_admins:
+    - github_handle: "henrycgbaker"
+  instructors:
+    - name: "Prof. Lynn Kaack, PhD"
+      title: "Assistant Professor of Computer Science and Public Policy"
+      photo: "https://github.com/LynnKaack.png"
+      url: "https://www.hertie-school.org/de/research/faculty-and-researchers/profile/person/kaack"
+      start: "2026-08-01"
+      end: "2027-07-31"
+  # NB: the public course site renders INSTRUCTOR cards only (include_tas=False in
+  # site.sync_public_site) - TAs are cohort-scoped, so their cards come from each
+  # cohort's own classroom-config/people.yml. These two are therefore inert here.
+  teaching_assistants:
+    - name: "Chiara Fusar Bassini"
+      title: "PhD candidate, Data Science Lab"
+      photo: "https://github.com/chiara-fb.png"
+      url: "https://www.hertie-school.org/en/who-we-are/profile/person/fusar-bassini"
+      start: "2026-08-01"
+      end: "2027-01-31"
+    - github_handle: "henrycgbaker"
+      name: "Henry Baker"
+      title: "Research Engineer & Data Scientist"
+      photo: "/_images/pp/henrycgbaker.jpg"
+      url: "https://www.hertie-school.org/en/who-we-are/profile/person/baker"
+      start: "2026-08-01"
+      end: "2027-01-31"
+
