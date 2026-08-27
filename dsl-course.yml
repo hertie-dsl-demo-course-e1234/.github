@@ -1,28 +1,41 @@
+# INSTRUCTOR-OWNED - yours to edit freely; edits here are not overwritten.
+#
 org: hertie-dsl-demo-course-e1234
 org_name: DSL Demo Course
 course_name: Deep Learning (Demo)
 course_code: E1234
+# course_description: One or two sentences, on ONE line - the blurb on every cohort site.
+# site_link_extensions: [pdf, html, ipynb]   # OPTIONAL: on the COHORT sites, link ONLY
+#   # these file types. Default (unset): each session's root files, plus one link per
+#   # subfolder - so a rendered deck lists the deck, not its hundreds of assets. Either way
+#   # everything you release still ships, and the folder itself is always one click away.
+#   # (The public open-courseware site always lists root files - it hosts what it lists.)
 
+# `course_name`, `course_code` and `course_description` are what reach the cohort
+# websites. Editing them here re-syncs every cohort site already bootstrapped from this
+# course org.
+#
 # This is the persistent COURSE org - it spans many cohorts (years). Cohorts are
-# registered separately in .github/cohort-courses-pages.yml. The schedule changes
-# year to year, so it's declared PER COHORT in that cohort's own
-# classroom-config/schedule.yml, not here.
+# registered separately in .github/cohort-courses-pages.yml.
 
-# course_admins GRANTS ACCESS - the single source of truth for course-wide admin
-# (applied here AND mirrored into every cohort org). Optional start/end bound it.
+# ---------------------------------------------------------------------------
+# People. Two DIFFERENT things live under the `people:` key below - don't
+# confuse them:
 #
-# instructors/teaching_assistants below are DISPLAY ONLY at this level: cards for
-# the optional PUBLIC course site. Real per-cohort push access is declared in each
-# cohort's own classroom-config/people.yml.
+#   course_admins        GRANTS ACCESS. The single source of truth for course-wide
+#                        admin rights - the `course-admin` team here, mirrored into
+#                        every cohort org. A handle added any other way is reverted
+#                        on the next sync unless it's declared here; removing a
+#                        handle here revokes their access.
 #
-# `photo` takes EITHER an absolute URL on a host that ALLOWS HOTLINKING (GitHub
-# avatars always do), OR a site-relative path to an image committed into the site
-# repo under `_images/pp/`. Institutional profile sites often return 403 to
-# off-site requests, which renders as a broken image - host those locally.
-# DEMO DATA: demo people entries carry NO github_handle - a card is built from this
-# file, not from GitHub, so display works without one, and the sync never tries to
-# add (and therefore invite) a made-up account. Add a github_handle to actually
-# grant access.
+#   instructors          DISPLAY ONLY - website cards (name/photo/title/link) for
+#                        the OPTIONAL public open-courseware course website (the
+#                        "Publish course website" action). They grant NO GitHub
+#                        access. TAs are NOT declared here - they change every
+#                        cohort, so a cohort's whole teaching team (instructors &
+#                        TAs, their GitHub access AND their cohort-site cards) is
+#                        declared PER COHORT in that cohort's classroom-config/people.yml.
+# ---------------------------------------------------------------------------
 people:
   course_admins:
     - github_handle: "henrycgbaker"
@@ -50,4 +63,3 @@ people:
       url: "https://www.hertie-school.org/en/who-we-are/profile/person/baker"
       start: "2026-08-01"
       end: "2027-01-31"
-
