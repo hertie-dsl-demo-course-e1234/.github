@@ -28,13 +28,13 @@ List of all repositories associated with the course org. _Auto-discovered from t
 
 | Repo | Visibility | Description |
 | --- | --- | --- |
-| [assignment-1-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2026) | private | Assignment 1 template |
-| [assignment-2-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-2-f2026) | private | Assignment 2 template |
-| [assignment-3-project-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-3-project-f2026) | private | Assignment 3-project template |
-| [course-materials-f2025](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025) | private | Course materials (lectures/readings by session) |
-| [course-materials-f2026](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026) | private | Course materials (lectures/readings by session) |
-| [hertie-dsl-demo-course-e1234.github.io](https://github.com/hertie-dsl-demo-course-e1234/hertie-dsl-demo-course-e1234.github.io) | public | Course website (auto-deployed on push) |
-| [lecture-code-f2026](https://github.com/hertie-dsl-demo-course-e1234/lecture-code-f2026) | private | Lecture code package (mlfdemo) - phased release source |
+| [assignment-1-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2026) | public | Assignment 1 template |
+| [assignment-2-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-2-f2026) | public | Assignment 2 template |
+| [assignment-3-project-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-3-project-f2026) | public | Assignment 3-project template |
+| [course-materials-f2025](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025) | public | Course materials (lectures/labs/readings/datasets/other) by session |
+| [course-materials-f2026](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026) | public | Course materials (lectures/labs/readings/datasets/other) by session |
+| [hertie-dsl-demo-course-e1234.github.io](https://github.com/hertie-dsl-demo-course-e1234/hertie-dsl-demo-course-e1234.github.io) | public | [do not touch]: Course website (auto-deployed) |
+| [lecture-code-f2026](https://github.com/hertie-dsl-demo-course-e1234/lecture-code-f2026) | public | Lecture code package (mlfdemo) - phased release source |
 
 Edit & stage new course-related content in these, then release it to the relevant cohort org.
 
