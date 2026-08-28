@@ -6,7 +6,6 @@ course_name: Deep Learning (Demo)
 course_code: E1234
 course_description: "A public demonstration course run by the Hertie Data Science Lab - one course org and two cohort orgs showing the teaching toolkit end to end."
 # course_description: One or two sentences, on ONE line - the blurb on every cohort site.
-site_link_extensions: [pdf, ipynb, md]   # this cohort estate sets it; default is unset
 # site_link_extensions: [pdf, html, ipynb]   # OPTIONAL: on the COHORT sites, link ONLY
 #   # these file types. Default (unset): each session's root files, plus one link per
 #   # subfolder - so a rendered deck lists the deck, not its hundreds of assets. Either way
