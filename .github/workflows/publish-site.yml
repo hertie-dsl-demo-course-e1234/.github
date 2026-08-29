@@ -16,10 +16,10 @@ on:
   workflow_dispatch:
     inputs:
       source_repo:
-        description: "Source materials repo (in this course org) to publish"
+        description: "Materials repo to publish - the site is REBUILT from it; defaults to the latest course-materials-* repo"
         required: true
         type: choice
-        default: "lecture-code-f2026"
+        default: "course-materials-f2026"
         options:
           - course-materials-f2025
           - course-materials-f2026
