@@ -4,6 +4,9 @@ org: hertie-dsl-demo-course-e1234
 org_name: DSL Demo Course
 course_name: Deep Learning (Demo)
 course_code: E1234
+# Deployment tier this course (and its cohorts) runs the toolkit from. The demo org
+# soaks `staging` before anything is promoted to `release`, which every other org runs.
+central_ref: staging
 course_description: "A public demonstration course run by the Hertie Data Science Lab - one course org and two cohort orgs showing the teaching toolkit end to end."
 # course_description: One or two sentences, on ONE line - the blurb on every cohort site.
 # site_link_extensions: [pdf, html, ipynb]   # OPTIONAL: on the COHORT sites, link ONLY
