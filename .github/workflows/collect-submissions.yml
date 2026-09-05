@@ -30,6 +30,7 @@ on:
           - assignment-1-f2026
           - assignment-2-f2026
           - assignment-3-project-f2026
+          - assignment-90-e2e54e816
       dry_run:
         description: "Preview only - show what WOULD be refreshed"
         type: boolean
