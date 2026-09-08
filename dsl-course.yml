@@ -7,6 +7,14 @@ course_code: E1234
 # Deployment tier this course (and its cohorts) runs the toolkit from. The demo org
 # soaks `staging` before anything is promoted to `release`, which every other org runs.
 central_ref: main
+
+# Defaults the New assignment button writes into a new template's grading_config.yml;
+# each assignment can be edited there afterwards. Changing these changes the NEXT
+# assignment, never one that already exists.
+assignment_defaults:
+  max_team_size: 4            # group assignments only
+  late_window_days: 7         # 0 = nothing after the due date is accepted
+  late_penalty_per_day: 10%   # of the EARNED grade, per day started
 course_description: "A public demonstration course run by the Hertie Data Science Lab - one course org and two cohort orgs showing the teaching toolkit end to end."
 # course_description: One or two sentences, on ONE line - the blurb on every cohort site.
 # site_link_extensions: [pdf, html, ipynb]   # OPTIONAL: on the COHORT sites, link ONLY
