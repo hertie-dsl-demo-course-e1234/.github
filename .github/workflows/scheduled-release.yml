@@ -86,12 +86,15 @@ jobs:
 # A source the plan cites and the org has not got is emailed to the people git names for
 # it, from this step (see dsl_course.notify) - so the release pass carries the transport
 # alongside the token. Without it the digest issue's @mention is the only channel, which
-# reaches whoever happens to read GitHub notifications that week.
+# reaches whoever happens to read GitHub notifications that week. This pass also pre-flights
+# the COURSE org's own dsl-course.yml and cohort registry, whose mail goes to the course
+# admins instead - a second address list, read only here and by Sync membership.
           GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
           GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
           GRAPH_CLIENT_CERT: ${{ secrets.GRAPH_CLIENT_CERT }}
           GRAPH_SENDER: ${{ secrets.GRAPH_SENDER }}
           DSL_MAINTAINER_EMAIL: ${{ secrets.DSL_MAINTAINER_EMAIL }}
+          DSL_COURSE_ADMIN_EMAILS: ${{ secrets.DSL_COURSE_ADMIN_EMAILS }}
         run: |
           gh auth setup-git
           # Which driver delivered this tick. The run history is the only record of that,
