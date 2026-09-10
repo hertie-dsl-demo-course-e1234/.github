@@ -21,6 +21,7 @@ on:
         options:
           - course-materials-f2025
           - course-materials-f2026
+          - course-materials-zz1
           - lecture-code-f2026
       cohort_org:
         description: "Cohort whose schedule.yml supplies the sessions"

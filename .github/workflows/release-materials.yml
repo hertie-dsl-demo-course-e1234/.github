@@ -19,6 +19,7 @@ on:
         options:
           - course-materials-f2025
           - course-materials-f2026
+          - course-materials-zz1
           - lecture-code-f2026
       course_source_path:
         description: "2. within-repo folder/file path to copy from (or comma-separated list)"

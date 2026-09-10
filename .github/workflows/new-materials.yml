@@ -22,6 +22,7 @@ on:
           - (fresh starter)
           - course-materials-f2025
           - course-materials-f2026
+          - course-materials-zz1
 
 permissions: {}
 
