@@ -1,3 +1,5 @@
+# SYSTEM-OWNED - do not edit, edits here are overwritten. This workflow is
+# re-rendered from the central DSL teaching toolkit by 'Refresh actions' (nightly).
 name: New assignment
 
 on:
@@ -12,21 +14,20 @@ on:
       semester_tag:
         description: "3. Year tag, e.g. f2026 or s2026 - creates assignment-<number>-<tag>"
         required: true
-      copy_from:
-        description: "4. Copy an existing template forward instead - both branches, whole history. Boxes 5-9 are then ignored"
-        required: false
-        type: choice
-        options:
-          - (fresh starter)
-          - assignment-1-f2026
-          - assignment-2-f2026
-          - assignment-3-project-f2026
       format:
-        description: "5. Starter file(s) to seed, comma-separated: ipynb, py, rmd, qmd, latex - or none for the README.md only"
-        default: "ipynb"
+        description: "4. Which starter file to seed - none = the brief only. Grading reads whatever students commit either way"
         required: true
+        type: choice
+        default: "ipynb"
+        options:
+          - ipynb
+          - py
+          - rmd
+          - qmd
+          - latex
+          - none
       type:
-        description: "6. individual = one repo per student; group = one repo per team (teams.csv)"
+        description: "5. individual = one repo per student; group = one repo per team (teams.csv)"
         required: true
         type: choice
         default: "individual"
@@ -34,7 +35,7 @@ on:
           - individual
           - group
       team_formation:
-        description: "7. Group only: self_select = students use the Join team form; assigned = you write teams.csv"
+        description: "6. Group only: self_select = students use the Join team form; assigned = you write teams.csv"
         required: true
         type: choice
         default: "self_select"
@@ -42,7 +43,7 @@ on:
           - self_select
           - assigned
       submit_via:
-        description: "8. Where students hand in. github = they push to their repo and the cutoff, receipts and late window apply; external = handed in elsewhere (Moodle, Kaggle, in class), so the repo only carries the brief and nothing is collected"
+        description: "7. external = handed in off GitHub (Moodle, Kaggle, in class) - no receipts, no late arithmetic"
         required: true
         type: choice
         default: "github"
@@ -50,9 +51,18 @@ on:
           - github
           - external
       autograde:
-        description: "9. Also run hidden tests at the cutoff. Seeds tests/ on the solution branch for you to fill; each submission's pass count automatically appears on the grading sheet as a first pass for graders - not shown to students"
+        description: "8. Run the template's tests/ at the cutoff. The count is shown to graders, never to a student"
         type: boolean
         default: false
+      copy_from:
+        description: "9. Copy an existing template forward instead - both branches, whole history. Boxes 1 and 4-8 are then ignored"
+        required: false
+        type: choice
+        options:
+          - (fresh starter)
+          - assignment-1-f2026
+          - assignment-2-f2026
+          - assignment-3-project-f2026
 
 permissions: {}
 
@@ -84,7 +94,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
         with:
           repository: hertie-data-science-lab/dsl-teaching-toolkit
-          ref: __CENTRAL_REF__
+          ref: main
           # No credential left behind in $GITHUB_WORKSPACE/.git/config. Nothing here ever
           # pushes to the checkout - the central repo is public and read-only to these
           # jobs, and every write goes through `gh`/`gh auth setup-git` against ANOTHER
@@ -103,12 +113,12 @@ jobs:
           NAME: ${{ inputs.assignment_name }}
           NUMBER: ${{ inputs.assignment_number }}
           TAG: ${{ inputs.semester_tag }}
-          COPY_FROM: ${{ inputs.copy_from }}
           FORMAT: ${{ inputs.format }}
           TYPE: ${{ inputs.type }}
           TEAM_FORMATION: ${{ inputs.team_formation }}
           SUBMIT_VIA: ${{ inputs.submit_via }}
           AUTOGRADE: ${{ inputs.autograde }}
+          COPY_FROM: ${{ inputs.copy_from }}
         run: |
           gh auth setup-git
           args=(--org "$ORG" --number "$NUMBER" --tag "$TAG" --name "$NAME" \
