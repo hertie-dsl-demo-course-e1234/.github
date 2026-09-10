@@ -63,6 +63,7 @@ on:
           - assignment-1-f2026
           - assignment-2-f2026
           - assignment-3-project-f2026
+          - assignment-9-zz1
 
 permissions: {}
 
