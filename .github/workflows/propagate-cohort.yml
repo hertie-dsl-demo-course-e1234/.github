@@ -82,6 +82,7 @@ jobs:
           COHORT_ORG: ${{ inputs.cohort_org }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: |
+          gh auth setup-git
           args=(--course-org "$COURSE_ORG" --cohort-org "$COHORT_ORG")
           if [ "$DRY_RUN" = "false" ]; then args+=(--no-dry-run); else args+=(--dry-run); fi
           python3 -m dsl_course.propagate "${args[@]}"
