@@ -30,7 +30,6 @@ on:
           - assignment-1-f2026
           - assignment-2-f2026
           - assignment-3-project-f2026
-          - assignment-9-zz1
       slug:
         description: "Only if TWO schedule.yml assignments hand out from this template: which one (the schedule key). Leave empty otherwise"
         required: false
