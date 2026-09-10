@@ -54,6 +54,15 @@ on:
         description: "8. Run the template's tests/ at the cutoff. The count is shown to graders, never to a student"
         type: boolean
         default: false
+      copy_from:
+        description: "9. Copy an existing template forward instead - both branches, whole history. Boxes 1 and 4-8 are then ignored"
+        required: false
+        type: choice
+        options:
+          - (fresh starter)
+          - assignment-1-f2026
+          - assignment-2-f2026
+          - assignment-3-project-f2026
 
 permissions: {}
 
@@ -109,10 +118,13 @@ jobs:
           TEAM_FORMATION: ${{ inputs.team_formation }}
           SUBMIT_VIA: ${{ inputs.submit_via }}
           AUTOGRADE: ${{ inputs.autograde }}
+          COPY_FROM: ${{ inputs.copy_from }}
         run: |
           gh auth setup-git
-          python3 -m dsl_course.scaffold assignment --org "$ORG" --number "$NUMBER" \
-            --tag "$TAG" --name "$NAME" --format "$FORMAT" --type "$TYPE" \
-            --team-formation "$TEAM_FORMATION" --submit-via "$SUBMIT_VIA" \
-            --autograde "$AUTOGRADE"
+          args=(--org "$ORG" --number "$NUMBER" --tag "$TAG" --name "$NAME" \
+            --format "$FORMAT" --type "$TYPE" --team-formation "$TEAM_FORMATION" \
+            --submit-via "$SUBMIT_VIA" --autograde "$AUTOGRADE")
+          [ "$COPY_FROM" = "(fresh starter)" ] && COPY_FROM=""
+          [ -n "$COPY_FROM" ] && args+=(--copy-from "$COPY_FROM")
+          python3 -m dsl_course.scaffold assignment "${args[@]}"
           python3 -m dsl_course.seed refresh --course-org "$ORG"
