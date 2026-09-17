@@ -26,6 +26,7 @@ on:
           - assignment-90-e2eecda7a-external
           - assignment-90-e2eecda7a-private
           - assignment-90-e2eecda7a-public
+          - assignment-90-e2eecda7a-shared
           - assignment-90-e2eecda7a-student-choice
       format:
         description: "5. Starter file(s) to seed, comma-separated: ipynb, py, rmd, qmd, latex - or none for the README.md only"

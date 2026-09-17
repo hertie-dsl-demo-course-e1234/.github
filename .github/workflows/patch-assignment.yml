@@ -35,6 +35,7 @@ on:
           - assignment-90-e2eecda7a-external
           - assignment-90-e2eecda7a-private
           - assignment-90-e2eecda7a-public
+          - assignment-90-e2eecda7a-shared
           - assignment-90-e2eecda7a-student-choice
       path:
         description: "File or folder on the template's default branch to push (e.g. starter.ipynb, or data/)"
