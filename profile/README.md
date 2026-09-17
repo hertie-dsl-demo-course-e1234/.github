@@ -31,6 +31,7 @@ List of all repositories associated with the course org. _Auto-discovered from t
 | [assignment-1-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2026) | public | Assignment 1 template |
 | [assignment-2-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-2-f2026) | public | Assignment 2 template |
 | [assignment-3-project-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-3-project-f2026) | public | Assignment 3-project template |
+| [assignment-90-e2e36f8b8-external](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e36f8b8-external) | private | Assignment 90: E2E external e2e36f8b8 |
 | [assignment-90-e2e36f8b8-private](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e36f8b8-private) | private | Assignment 90: E2E private e2e36f8b8 |
 | [assignment-90-e2e36f8b8-public](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e36f8b8-public) | private | Assignment 90: E2E public e2e36f8b8 |
 | [assignment-90-e2e36f8b8-student-choice](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e36f8b8-student-choice) | private | Assignment 90: E2E student-choice e2e36f8b8 |
