@@ -34,6 +34,7 @@ on:
           - assignment-3-project-f2026
           - assignment-90-e2e6e303e-private
           - assignment-90-e2e6e303e-public
+          - assignment-90-e2e6e303e-student-choice
       path:
         description: "File or folder on the template's default branch to push (e.g. starter.ipynb, or data/)"
         required: true
