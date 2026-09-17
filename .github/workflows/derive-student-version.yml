@@ -25,11 +25,6 @@ on:
           - assignment-1-f2026
           - assignment-2-f2026
           - assignment-3-project-f2026
-          - assignment-90-e2ee096fb-external
-          - assignment-90-e2ee096fb-private
-          - assignment-90-e2ee096fb-public
-          - assignment-90-e2ee096fb-shared
-          - assignment-90-e2ee096fb-student-choice
       dry_run:
         description: "Preview only - list the files and how much would be stripped out of each"
         type: boolean
