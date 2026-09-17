@@ -27,11 +27,12 @@ on:
         description: "Assignment template holding the corrected file"
         required: true
         type: choice
-        default: "assignment-3-project-f2026"
+        default: "assignment-4-f2026"
         options:
           - assignment-1-f2026
           - assignment-2-f2026
           - assignment-3-project-f2026
+          - assignment-4-f2026
       path:
         description: "File or folder on the template's default branch to push (e.g. starter.ipynb, or data/)"
         required: true

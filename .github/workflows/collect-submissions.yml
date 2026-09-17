@@ -25,11 +25,12 @@ on:
         description: "Course-org repo to hand out from"
         required: true
         type: choice
-        default: "assignment-3-project-f2026"
+        default: "assignment-4-f2026"
         options:
           - assignment-1-f2026
           - assignment-2-f2026
           - assignment-3-project-f2026
+          - assignment-4-f2026
       slug:
         description: "Only if TWO schedule.yml assignments hand out from this template: which one (the schedule key). Leave empty otherwise"
         required: false
