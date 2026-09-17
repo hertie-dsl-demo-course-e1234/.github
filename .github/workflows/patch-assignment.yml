@@ -36,6 +36,7 @@ on:
           - assignment-5-f2026
           - assignment-6-f2026
           - assignment-7-f2026
+          - assignment-90-e2e0745f1-private
       path:
         description: "File or folder on the template's default branch to push (e.g. starter.ipynb, or data/)"
         required: true
