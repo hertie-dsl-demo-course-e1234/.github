@@ -32,11 +32,6 @@ on:
           - assignment-1-f2026
           - assignment-2-f2026
           - assignment-3-project-f2026
-          - assignment-90-e2e36f8b8-external
-          - assignment-90-e2e36f8b8-private
-          - assignment-90-e2e36f8b8-public
-          - assignment-90-e2e36f8b8-shared
-          - assignment-90-e2e36f8b8-student-choice
       path:
         description: "File or folder on the template's default branch to push (e.g. starter.ipynb, or data/)"
         required: true
