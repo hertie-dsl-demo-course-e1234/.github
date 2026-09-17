@@ -32,6 +32,7 @@ on:
           - assignment-90-e2e0745f1-external
           - assignment-90-e2e0745f1-private
           - assignment-90-e2e0745f1-public
+          - assignment-90-e2e0745f1-shared
           - assignment-90-e2e0745f1-student-choice
       dry_run:
         description: "Preview only - list the files and how much would be stripped out of each"
