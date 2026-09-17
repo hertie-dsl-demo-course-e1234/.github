@@ -34,6 +34,7 @@ List of all repositories associated with the course org. _Auto-discovered from t
 | [assignment-90-e2e6e303e-external](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e6e303e-external) | private | Assignment 90: E2E external e2e6e303e |
 | [assignment-90-e2e6e303e-private](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e6e303e-private) | private | Assignment 90: E2E private e2e6e303e |
 | [assignment-90-e2e6e303e-public](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e6e303e-public) | private | Assignment 90: E2E public e2e6e303e |
+| [assignment-90-e2e6e303e-shared](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e6e303e-shared) | private | Assignment 90: E2E shared e2e6e303e |
 | [assignment-90-e2e6e303e-student-choice](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e6e303e-student-choice) | private | Assignment 90: E2E student-choice e2e6e303e |
 | [course-materials-f2025](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [course-materials-f2026](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026) | public | Course materials (lectures/labs/readings/datasets/other) by session |
