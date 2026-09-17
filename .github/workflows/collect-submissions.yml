@@ -34,11 +34,6 @@ on:
           - assignment-5-f2026
           - assignment-6-f2026
           - assignment-7-f2026
-          - assignment-90-e2e0745f1-external
-          - assignment-90-e2e0745f1-private
-          - assignment-90-e2e0745f1-public
-          - assignment-90-e2e0745f1-shared
-          - assignment-90-e2e0745f1-student-choice
       slug:
         description: "Only if TWO schedule.yml assignments hand out from this template: which one (the schedule key). Leave empty otherwise"
         required: false
