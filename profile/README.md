@@ -31,11 +31,7 @@ List of all repositories associated with the course org. _Auto-discovered from t
 | [assignment-1-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2026) | public | Assignment 1 template |
 | [assignment-2-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-2-f2026) | public | Assignment 2 template |
 | [assignment-3-project-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-3-project-f2026) | public | Assignment 3-project template |
-| [assignment-90-e2eecda7a-external](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2eecda7a-external) | private | Assignment 90: E2E external e2eecda7a |
-| [assignment-90-e2eecda7a-private](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2eecda7a-private) | private | Assignment 90: E2E private e2eecda7a |
-| [assignment-90-e2eecda7a-public](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2eecda7a-public) | private | Assignment 90: E2E public e2eecda7a |
-| [assignment-90-e2eecda7a-shared](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2eecda7a-shared) | private | Assignment 90: E2E shared e2eecda7a |
-| [assignment-90-e2eecda7a-student-choice](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2eecda7a-student-choice) | private | Assignment 90: E2E student-choice e2eecda7a |
+| [assignment-4-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-4-f2026) | private | Assignment 4: Hackathon showcase |
 | [course-materials-f2025](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [course-materials-f2026](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [hertie-dsl-demo-course-e1234.github.io](https://github.com/hertie-dsl-demo-course-e1234/hertie-dsl-demo-course-e1234.github.io) | public | [do not touch]: Course website (auto-deployed) |
