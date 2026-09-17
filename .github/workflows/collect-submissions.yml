@@ -32,6 +32,7 @@ on:
           - assignment-3-project-f2026
           - assignment-90-e2ee096fb-private
           - assignment-90-e2ee096fb-public
+          - assignment-90-e2ee096fb-student-choice
       slug:
         description: "Only if TWO schedule.yml assignments hand out from this template: which one (the schedule key). Leave empty otherwise"
         required: false
