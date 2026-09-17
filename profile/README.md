@@ -35,11 +35,6 @@ List of all repositories associated with the course org. _Auto-discovered from t
 | [assignment-5-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-5-f2026) | private | Assignment 5: Portfolio piece |
 | [assignment-6-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-6-f2026) | private | Assignment 6: Referee reports |
 | [assignment-7-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-7-f2026) | private | Assignment 7: Moodle essay |
-| [assignment-90-e2e0745f1-external](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e0745f1-external) | private | Assignment 90: E2E external e2e0745f1 |
-| [assignment-90-e2e0745f1-private](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e0745f1-private) | private | Assignment 90: E2E private e2e0745f1 |
-| [assignment-90-e2e0745f1-public](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e0745f1-public) | private | Assignment 90: E2E public e2e0745f1 |
-| [assignment-90-e2e0745f1-shared](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e0745f1-shared) | private | Assignment 90: E2E shared e2e0745f1 |
-| [assignment-90-e2e0745f1-student-choice](https://github.com/hertie-dsl-demo-course-e1234/assignment-90-e2e0745f1-student-choice) | private | Assignment 90: E2E student-choice e2e0745f1 |
 | [course-materials-f2025](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [course-materials-f2026](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [hertie-dsl-demo-course-e1234.github.io](https://github.com/hertie-dsl-demo-course-e1234/hertie-dsl-demo-course-e1234.github.io) | public | [do not touch]: Course website (auto-deployed) |
