@@ -13,7 +13,7 @@ central_ref: preview
 # assignment, never one that already exists.
 assignment_defaults:
   max_team_size: 4            # group assignments only
-  late_window_days: 7         # 0 = nothing after the due date is accepted
+  late_window_days: 10         # 0 = nothing after the due date is accepted
   late_penalty_per_day: 10%   # of the EARNED grade, per day started
 course_description: "A public demonstration course run by the Hertie Data Science Lab - one course org and two cohort orgs showing the teaching toolkit end to end."
 # course_description: One or two sentences, on ONE line - the blurb on every cohort site.
