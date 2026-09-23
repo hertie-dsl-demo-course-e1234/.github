@@ -17,6 +17,9 @@
       "C5": "done",
       "C6": "done"
     },
+    "stage_why": {
+      "C4": "course-materials-f2025's SYLLABUS.md is still the placeholder."
+    },
     "ready": false,
     "materials": [
       {
