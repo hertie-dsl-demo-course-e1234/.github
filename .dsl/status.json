@@ -1,0 +1,74 @@
+{
+  "schema": "dsl.status/1",
+  "inputs": {
+    "dsl-course.yml": "1879995901fb3d9906f9a469f3e9b7cbb1973659",
+    "cohort-courses-pages.yml": "fe5a66fbfd5aaea3b88225f19ca0c970d278177f"
+  },
+  "course": {
+    "org": "hertie-dsl-demo-course-e1234",
+    "name": "Deep Learning (Demo)",
+    "code": "E1234",
+    "app_installed": null,
+    "stages": {
+      "C1": "done",
+      "C2": "done",
+      "C3": "done",
+      "C4": "todo",
+      "C5": "done",
+      "C6": "done"
+    },
+    "ready": false,
+    "materials": [
+      {
+        "repo": "course-materials-f2025",
+        "state": "todo"
+      },
+      {
+        "repo": "course-materials-f2026",
+        "state": "ready"
+      }
+    ],
+    "templates": [
+      {
+        "repo": "assignment-1-f2026",
+        "slug": "assignment-1",
+        "state": "ready"
+      },
+      {
+        "repo": "assignment-2-f2026",
+        "slug": "assignment-2",
+        "state": "ready"
+      },
+      {
+        "repo": "assignment-3-project-f2026",
+        "slug": "assignment-3-project",
+        "state": "ready"
+      },
+      {
+        "repo": "assignment-4-f2026",
+        "slug": "assignment-4",
+        "state": "ready"
+      },
+      {
+        "repo": "assignment-5-f2026",
+        "slug": "assignment-5",
+        "state": "ready"
+      },
+      {
+        "repo": "assignment-6-f2026",
+        "slug": "assignment-6",
+        "state": "ready"
+      },
+      {
+        "repo": "assignment-7-f2026",
+        "slug": "assignment-7",
+        "state": "ready"
+      }
+    ],
+    "cohorts": [
+      "hertie-dsl-demo-f2025",
+      "hertie-dsl-demo-f2026"
+    ]
+  },
+  "problems": []
+}
