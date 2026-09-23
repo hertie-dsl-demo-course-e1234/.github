@@ -6,7 +6,7 @@ course_name: Deep Learning (Demo)
 course_code: E1234
 # Deployment tier this course (and its cohorts) runs the toolkit from. The demo org
 # soaks `staging` before anything is promoted to `release`, which every other org runs.
-central_ref: preview
+central_ref: main
 
 # Defaults the New assignment button writes into a new template's grading_config.yml;
 # each assignment can be edited there afterwards. Changing these changes the NEXT
