@@ -1,0 +1,13 @@
+{
+  "actor": "henrycgbaker",
+  "conclusion": "failed",
+  "counts": {},
+  "finished": "2026-09-24T10:11:47Z",
+  "op": "assignment.derive_starter",
+  "preview": true,
+  "reasons": [],
+  "run_id": 35985790023,
+  "schema": "dsl.outcome/1",
+  "started": "2026-09-24T10:11:46Z",
+  "summary": "Stopped with a problem; the run log says where."
+}
