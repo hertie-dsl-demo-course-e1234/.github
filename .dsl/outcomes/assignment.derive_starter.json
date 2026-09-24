@@ -2,12 +2,12 @@
   "actor": "henrycgbaker",
   "conclusion": "failed",
   "counts": {},
-  "finished": "2026-09-24T10:11:47Z",
+  "finished": "2026-09-24T10:13:29Z",
   "op": "assignment.derive_starter",
-  "preview": true,
+  "preview": false,
   "reasons": [],
-  "run_id": 35985790023,
+  "run_id": 35985948397,
   "schema": "dsl.outcome/1",
-  "started": "2026-09-24T10:11:46Z",
+  "started": "2026-09-24T10:13:28Z",
   "summary": "Stopped with a problem; the run log says where."
 }
