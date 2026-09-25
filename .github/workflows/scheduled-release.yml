@@ -33,7 +33,7 @@ name: Scheduled release
 
 # A one-semester run says so in its title: the runs listing is all `cadence` can see, and a run
 # that released into one semester is not a tick of the whole course.
-run-name: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload.driver == 'semester-config' && github.event.client_payload.semester_org || '') && format('Scheduled release for cohort {0}', github.event.client_payload.semester_org) || 'Scheduled release' }}
+run-name: ${{ (github.event_name == 'repository_dispatch' && (github.event.client_payload.driver == 'semester-config' || github.event.client_payload.driver == 'migrate') && github.event.client_payload.semester_org || '') && format('Scheduled release for cohort {0}', github.event.client_payload.semester_org) || 'Scheduled release' }}
 
 on:
   schedule:
@@ -59,7 +59,7 @@ jobs:
     # JOB-level, because the failure-issue steps' `if:` must see it and a step's `if:`
     # reads only job- and workflow-level env.
     env:
-      SCOPED: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload.driver == 'semester-config' && github.event.client_payload.semester_org || '') }}
+      SCOPED: ${{ (github.event_name == 'repository_dispatch' && (github.event.client_payload.driver == 'semester-config' || github.event.client_payload.driver == 'migrate') && github.event.client_payload.semester_org || '') }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
