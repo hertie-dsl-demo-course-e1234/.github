@@ -14,19 +14,19 @@ assignment_defaults:
   late_window_days: 10         # 0 = nothing after the due date is accepted
   late_penalty_per_day: 10%   # of the EARNED grade, per day started
 course_description: "A public demonstration course run by the Hertie Data Science Lab - one course org and two cohort orgs showing the teaching toolkit end to end."
-# course_description: One or two sentences, on ONE line - the blurb on every cohort site.
-# site_link_extensions: [pdf, html, ipynb]   # OPTIONAL: on the COHORT sites, link ONLY
+# course_description: One or two sentences, on ONE line - the blurb on every semester site.
+# site_link_extensions: [pdf, html, ipynb]   # OPTIONAL: on the SEMESTER sites, link ONLY
 #   # these file types. Default (unset): each session's root files, plus one link per
 #   # subfolder - so a rendered deck lists the deck, not its hundreds of assets. Either way
 #   # everything you release still ships, and the folder itself is always one click away.
 #   # (The public open-courseware site always lists root files - it hosts what it lists.)
 
-# `course_name`, `course_code` and `course_description` are what reach the cohort
-# websites. Editing them here re-syncs every cohort site already bootstrapped from this
+# `course_name`, `course_code` and `course_description` are what reach the semester
+# websites. Editing them here re-syncs every semester site already bootstrapped from this
 # course org.
 #
-# This is the persistent COURSE org - it spans many cohorts (years). Cohorts are
-# registered separately in .github/cohort-courses-pages.yml.
+# This is the persistent COURSE org - it spans many semesters (years). Semesters are
+# registered separately in .github/semesters.yml.
 
 # ---------------------------------------------------------------------------
 # People. Two DIFFERENT things live under the `people:` key below - don't
@@ -44,7 +44,7 @@ course_description: "A public demonstration course run by the Hertie Data Scienc
 #                        access. TAs are NOT declared here - they change every
 #                        cohort, so a cohort's whole teaching team (instructors &
 #                        TAs, their GitHub access AND their cohort-site cards) is
-#                        declared PER COHORT in that cohort's classroom-config/people.yml.
+#                        declared PER COHORT in that cohort's semester-config/people.yml.
 # ---------------------------------------------------------------------------
 people:
   course_admins:
@@ -58,7 +58,7 @@ people:
       end: "2027-07-31"
   # NB: the public course site renders INSTRUCTOR cards only (include_tas=False in
   # site.sync_public_site) - TAs are cohort-scoped, so their cards come from each
-  # cohort's own classroom-config/people.yml. These two are therefore inert here.
+  # cohort's own semester-config/people.yml. These two are therefore inert here.
   teaching_assistants:
     - name: "Chiara Fusar Bassini"
       title: "PhD candidate, Data Science Lab"
