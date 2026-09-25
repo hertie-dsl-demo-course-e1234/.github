@@ -6,12 +6,16 @@ name: Distribute grades
 # private grades-<handle> repo, the registrar export, and (unless silenced) an email saying
 # there is something new to read. Nothing is posted into a submission repo, and nothing is
 # said twice - a re-run after one correction reaches one student.
-# There is no assignment to pick: every run rebuilds every gradebook from every sheet,
-# which is what keeps a gradebook the whole of a student's marks.
+# `assignment` empty returns every sheet; named, it returns that assignment's marks only,
+# and each gradebook still shows every assignment already returned.
 # Preview first; it writes no grades, sends no mail, and posts who gets what as a
 # "Distribute grades preview" issue in semester-config. Needs the GRAPH_* secrets to mail.
+# The scheduler's automatic return (an assignment's `marks_return_datetime`) arrives here
+# as a `return-marks` dispatch, so it and a button press share this workflow's queue.
 
 on:
+  repository_dispatch:
+    types: [return-marks]
   workflow_dispatch:
     inputs:
       semester_org:
@@ -22,6 +26,10 @@ on:
         options:
           - hertie-dsl-demo-f2025
           - hertie-dsl-demo-f2026
+      assignment:
+        description: "Only this assignment (its repo name, e.g. assignment-2); empty = every one"
+        required: false
+        default: ""
       preview:
         description: "Preview who gets what, as an issue in semester-config - push no grades, send nothing"
         type: boolean
@@ -66,6 +74,9 @@ jobs:
           exit 1
 
   distribute-grades:
+    # A button press waits for its check-team gate; the scheduler's dispatch has none
+    # (no actor), and `--dispatched-by` checks what it names instead.
+    if: always() && (github.event_name == 'repository_dispatch' || needs.check-team.result == 'success')
     needs: check-team
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -89,11 +100,13 @@ jobs:
       - name: Distribute grades
         env:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
-          SEMESTER_ORG: ${{ inputs.semester_org }}
-          PREVIEW: ${{ inputs.preview }}
+          SEMESTER_ORG: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.semester_org || inputs.semester_org }}
+          PREVIEW: ${{ github.event_name == 'repository_dispatch' && 'false' || inputs.preview }}
           NOTIFY: ${{ inputs.notify }}
           RECEIPT_NOTE: ${{ inputs.receipt_note }}
           INCLUDE_FEEDBACK: ${{ inputs.include_feedback }}
+          ASSIGNMENT: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.assignment || inputs.assignment }}
+          DISPATCHED_BY: ${{ github.event_name == 'repository_dispatch' && github.repository_owner || '' }}
           GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
           GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
           GRAPH_CLIENT_CERT: ${{ secrets.GRAPH_CLIENT_CERT }}
@@ -105,4 +118,6 @@ jobs:
           [ "$NOTIFY" = "false" ] && args+=(--no-notify)
           [ "$RECEIPT_NOTE" = "true" ] && args+=(--receipt-note)
           [ "$INCLUDE_FEEDBACK" = "true" ] && args+=(--include-feedback)
+          [ -n "$ASSIGNMENT" ] && args+=(--assignment "$ASSIGNMENT")
+          [ -n "$DISPATCHED_BY" ] && args+=(--dispatched-by "$DISPATCHED_BY")
           python3 -m dsl_course.grades distribute "${args[@]}"

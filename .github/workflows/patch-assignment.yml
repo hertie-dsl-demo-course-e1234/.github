@@ -39,10 +39,6 @@ on:
       path:
         description: "File or folder on the template's default branch to push (e.g. starter.ipynb, or data/)"
         required: true
-      slug:
-        description: "Only if TWO schedule.yml assignments hand out from this template: which one (the schedule key). Leave empty otherwise"
-        required: false
-        default: ""
       overwrite:
         description: "Replace the file even where the student has already changed it (their work on that file is lost)"
         type: boolean
@@ -106,13 +102,11 @@ jobs:
           SEMESTER_ORG: ${{ inputs.semester_org }}
           COURSE_SOURCE_REPO: ${{ inputs.course_source_repo }}
           PATH_INPUT: ${{ inputs.path }}
-          SLUG: ${{ inputs.slug }}
           OVERWRITE: ${{ inputs.overwrite }}
           PREVIEW: ${{ inputs.preview }}
         run: |
           gh auth setup-git
           args=(--course-org "$COURSE_ORG" --course-source-repo "$COURSE_SOURCE_REPO" --semester-org "$SEMESTER_ORG" --patch-path "$PATH_INPUT")
-          [ -n "$SLUG" ] && args+=(--slug "$SLUG")
           [ "$OVERWRITE" = "true" ] && args+=(--overwrite)
           if [ "$PREVIEW" = "false" ]; then args+=(--no-preview); else args+=(--preview); fi
           python3 -m dsl_course.assign "${args[@]}"
