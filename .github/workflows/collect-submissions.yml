@@ -34,6 +34,10 @@ on:
           - assignment-5-f2026
           - assignment-6-f2026
           - assignment-7-f2026
+      assignment:
+        description: "Only if two schedule.yml entries share this template: the one to act on (its key)"
+        required: false
+        default: ""
       preview:
         description: "Preview - show what WOULD be refreshed"
         type: boolean
@@ -95,8 +99,10 @@ jobs:
           COURSE_ORG: ${{ github.repository_owner }}
           SEMESTER_ORG: ${{ inputs.semester_org }}
           COURSE_SOURCE_REPO: ${{ inputs.course_source_repo }}
+          ASSIGNMENT: ${{ inputs.assignment }}
           PREVIEW: ${{ inputs.preview }}
         run: |
           args=(--course-org "$COURSE_ORG" --course-source-repo "$COURSE_SOURCE_REPO" --semester-org "$SEMESTER_ORG" --refresh-only)
+          [ -n "$ASSIGNMENT" ] && args+=(--assignment "$ASSIGNMENT")
           if [ "$PREVIEW" = "false" ]; then args+=(--no-preview); else args+=(--preview); fi
           python3 -m dsl_course.collect "${args[@]}"
