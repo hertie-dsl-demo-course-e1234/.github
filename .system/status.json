@@ -1,7 +1,7 @@
 {
   "schema": "dsl.status/1",
   "inputs": {
-    "dsl-course.yml": "276278ab95afd72300e49c2a3c8a47f541ea29cc",
+    "dsl-course.yml": "86d28f5d8e8d618056e050bdaa028a7b464a935b",
     "semesters.yml": "5072b80d60f1554622a49e7f423e015eb4ffbc56"
   },
   "course": {
@@ -14,12 +14,11 @@
       "C2": "done",
       "C3": "done",
       "C4": "todo",
-      "C5": "problem",
+      "C5": "done",
       "C6": "done"
     },
     "stage_why": {
-      "C4": "course-materials-f2025's SYLLABUS.md is still the placeholder.",
-      "C5": "7 problems need fixing."
+      "C4": "course-materials-f2025's SYLLABUS.md is still the placeholder."
     },
     "ready": false,
     "materials": [
@@ -36,37 +35,37 @@
       {
         "repo": "assignment-1-f2026",
         "slug": "assignment-1",
-        "state": "problem"
+        "state": "ready"
       },
       {
         "repo": "assignment-2-f2026",
         "slug": "assignment-2",
-        "state": "problem"
+        "state": "ready"
       },
       {
         "repo": "assignment-3-project-f2026",
         "slug": "assignment-3-project",
-        "state": "problem"
+        "state": "ready"
       },
       {
         "repo": "assignment-4-f2026",
         "slug": "assignment-4",
-        "state": "problem"
+        "state": "ready"
       },
       {
         "repo": "assignment-5-f2026",
         "slug": "assignment-5",
-        "state": "problem"
+        "state": "ready"
       },
       {
         "repo": "assignment-6-f2026",
         "slug": "assignment-6",
-        "state": "problem"
+        "state": "ready"
       },
       {
         "repo": "assignment-7-f2026",
         "slug": "assignment-7",
-        "state": "problem"
+        "state": "ready"
       }
     ],
     "semesters": [
@@ -74,111 +73,5 @@
       "hertie-dsl-demo-f2026"
     ]
   },
-  "problems": [
-    {
-      "id": "template:assignment-1:NOT_MIGRATED",
-      "scope": "course",
-      "stage": "C5",
-      "text": "The assignment-1 template's settings: grading_config.yml: NOT_MIGRATED: late_window_days is no longer read here.",
-      "stops": "It is set per semester in semester-config/assignments.yml, where the migration moves it; run the migration - the whole file is refused, so the assignment is not handed out or marked until it is.",
-      "fix": {
-        "repo": "hertie-dsl-demo-course-e1234/assignment-1-f2026",
-        "path": "grading_config.yml",
-        "line": 15,
-        "screen": "template",
-        "entry": "assignment-1",
-        "ref": "solution"
-      }
-    },
-    {
-      "id": "template:assignment-2:NOT_MIGRATED",
-      "scope": "course",
-      "stage": "C5",
-      "text": "The assignment-2 template's settings: grading_config.yml: NOT_MIGRATED: late_window_days is no longer read here.",
-      "stops": "It is set per semester in semester-config/assignments.yml, where the migration moves it; run the migration - the whole file is refused, so the assignment is not handed out or marked until it is.",
-      "fix": {
-        "repo": "hertie-dsl-demo-course-e1234/assignment-2-f2026",
-        "path": "grading_config.yml",
-        "line": 16,
-        "screen": "template",
-        "entry": "assignment-2",
-        "ref": "solution"
-      }
-    },
-    {
-      "id": "template:assignment-3-project:NOT_MIGRATED",
-      "scope": "course",
-      "stage": "C5",
-      "text": "The assignment-3-project template's settings: grading_config.yml: NOT_MIGRATED: team_formation is no longer read here.",
-      "stops": "It is set per semester in semester-config/assignments.yml, where the migration moves it; run the migration - the whole file is refused, so the assignment is not handed out or marked until it is.",
-      "fix": {
-        "repo": "hertie-dsl-demo-course-e1234/assignment-3-project-f2026",
-        "path": "grading_config.yml",
-        "line": 4,
-        "screen": "template",
-        "entry": "assignment-3-project",
-        "ref": "solution"
-      }
-    },
-    {
-      "id": "template:assignment-4:NOT_MIGRATED",
-      "scope": "course",
-      "stage": "C5",
-      "text": "The assignment-4 template's settings: grading_config.yml: NOT_MIGRATED: late_window_days is no longer read here.",
-      "stops": "It is set per semester in semester-config/assignments.yml, where the migration moves it; run the migration - the whole file is refused, so the assignment is not handed out or marked until it is.",
-      "fix": {
-        "repo": "hertie-dsl-demo-course-e1234/assignment-4-f2026",
-        "path": "grading_config.yml",
-        "line": 16,
-        "screen": "template",
-        "entry": "assignment-4",
-        "ref": "solution"
-      }
-    },
-    {
-      "id": "template:assignment-5:NOT_MIGRATED",
-      "scope": "course",
-      "stage": "C5",
-      "text": "The assignment-5 template's settings: grading_config.yml: NOT_MIGRATED: late_window_days is no longer read here.",
-      "stops": "It is set per semester in semester-config/assignments.yml, where the migration moves it; run the migration - the whole file is refused, so the assignment is not handed out or marked until it is.",
-      "fix": {
-        "repo": "hertie-dsl-demo-course-e1234/assignment-5-f2026",
-        "path": "grading_config.yml",
-        "line": 15,
-        "screen": "template",
-        "entry": "assignment-5",
-        "ref": "solution"
-      }
-    },
-    {
-      "id": "template:assignment-6:NOT_MIGRATED",
-      "scope": "course",
-      "stage": "C5",
-      "text": "The assignment-6 template's settings: grading_config.yml: NOT_MIGRATED: late_window_days is no longer read here.",
-      "stops": "It is set per semester in semester-config/assignments.yml, where the migration moves it; run the migration - the whole file is refused, so the assignment is not handed out or marked until it is.",
-      "fix": {
-        "repo": "hertie-dsl-demo-course-e1234/assignment-6-f2026",
-        "path": "grading_config.yml",
-        "line": 15,
-        "screen": "template",
-        "entry": "assignment-6",
-        "ref": "solution"
-      }
-    },
-    {
-      "id": "template:assignment-7:NOT_MIGRATED",
-      "scope": "course",
-      "stage": "C5",
-      "text": "The assignment-7 template's settings: grading_config.yml: NOT_MIGRATED: late_window_days is no longer read here.",
-      "stops": "It is set per semester in semester-config/assignments.yml, where the migration moves it; run the migration - the whole file is refused, so the assignment is not handed out or marked until it is.",
-      "fix": {
-        "repo": "hertie-dsl-demo-course-e1234/assignment-7-f2026",
-        "path": "grading_config.yml",
-        "line": 16,
-        "screen": "template",
-        "entry": "assignment-7",
-        "ref": "solution"
-      }
-    }
-  ]
+  "problems": []
 }
