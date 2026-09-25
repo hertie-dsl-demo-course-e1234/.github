@@ -13,22 +13,22 @@
       "C1": "done",
       "C2": "done",
       "C3": "done",
-      "C4": "todo",
+      "C4": "problem",
       "C5": "done",
       "C6": "done"
     },
     "stage_why": {
-      "C4": "course-materials-f2025's SYLLABUS.md is still the placeholder."
+      "C4": "2 problems need fixing."
     },
     "ready": false,
     "materials": [
       {
         "repo": "course-materials-f2025",
-        "state": "todo"
+        "state": "problem"
       },
       {
         "repo": "course-materials-f2026",
-        "state": "ready"
+        "state": "problem"
       }
     ],
     "templates": [
@@ -73,5 +73,36 @@
       "hertie-dsl-demo-f2026"
     ]
   },
-  "problems": []
+  "problems": [
+    {
+      "id": "materials:course-materials-f2025:NOT_MIGRATED",
+      "scope": "course",
+      "stage": "C4",
+      "text": "course-materials-f2025 is a materials repo by its old name only: it has no dsl-materials topic yet.",
+      "stops": "Run the migration, which adds the topic.",
+      "fix": {
+        "repo": "hertie-dsl-demo-course-e1234/course-materials-f2025",
+        "path": "",
+        "line": null,
+        "screen": null,
+        "entry": null,
+        "url": "https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025"
+      }
+    },
+    {
+      "id": "materials:course-materials-f2026:NOT_MIGRATED",
+      "scope": "course",
+      "stage": "C4",
+      "text": "course-materials-f2026 is a materials repo by its old name only: it has no dsl-materials topic yet.",
+      "stops": "Run the migration, which adds the topic.",
+      "fix": {
+        "repo": "hertie-dsl-demo-course-e1234/course-materials-f2026",
+        "path": "",
+        "line": null,
+        "screen": null,
+        "entry": null,
+        "url": "https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026"
+      }
+    }
+  ]
 }
