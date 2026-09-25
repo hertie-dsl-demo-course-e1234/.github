@@ -15,7 +15,7 @@ on:
         description: "1. repo to release from in the course org"
         required: true
         type: choice
-        default: "lecture-code-f2026"
+        default: "course-materials-f2026"
         options:
           - course-materials-f2025
           - course-materials-f2026

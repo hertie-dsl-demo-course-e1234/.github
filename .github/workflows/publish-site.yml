@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       source_repo:
-        description: "Materials repo to publish - the site is REBUILT from it; defaults to the latest course-materials-* repo"
+        description: "Materials repo to publish - the site is REBUILT from it; defaults to the latest materials repo"
         required: true
         type: choice
         default: "course-materials-f2026"
