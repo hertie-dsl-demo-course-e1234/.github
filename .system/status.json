@@ -1,8 +1,8 @@
 {
   "schema": "dsl.status/1",
   "inputs": {
-    "dsl-course.yml": "1879995901fb3d9906f9a469f3e9b7cbb1973659",
-    "cohort-courses-pages.yml": "fe5a66fbfd5aaea3b88225f19ca0c970d278177f"
+    "dsl-course.yml": "276278ab95afd72300e49c2a3c8a47f541ea29cc",
+    "semesters.yml": "5072b80d60f1554622a49e7f423e015eb4ffbc56"
   },
   "course": {
     "org": "hertie-dsl-demo-course-e1234",
@@ -68,7 +68,7 @@
         "state": "ready"
       }
     ],
-    "cohorts": [
+    "semesters": [
       "hertie-dsl-demo-f2025",
       "hertie-dsl-demo-f2026"
     ]
