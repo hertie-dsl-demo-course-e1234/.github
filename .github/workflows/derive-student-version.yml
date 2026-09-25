@@ -10,7 +10,7 @@ name: Derive student version
 # repo - so the starter is never maintained by hand beside the answer it is meant to be
 # missing. It never writes to `solution`, and a file with nothing fenced in it is never
 # written at all: the "starter" derived from that would be the model answer.
-# `dry_run` defaults to true and prints the file list and the counts, never the content.
+# `preview` defaults to true and prints the file list and the counts, never the content.
 # See docs/03-add-assignment-to-course.md.
 
 on:
@@ -29,8 +29,8 @@ on:
           - assignment-5-f2026
           - assignment-6-f2026
           - assignment-7-f2026
-      dry_run:
-        description: "Preview only - list the files and how much would be stripped out of each"
+      preview:
+        description: "Preview - list the files and how much would be stripped out of each"
         type: boolean
         default: true
 
@@ -86,8 +86,8 @@ jobs:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           COURSE_ORG: ${{ github.repository_owner }}
           COURSE_SOURCE_REPO: ${{ inputs.course_source_repo }}
-          DRY_RUN: ${{ inputs.dry_run }}
+          PREVIEW: ${{ inputs.preview }}
         run: |
           args=(--course-org "$COURSE_ORG" --course-source-repo "$COURSE_SOURCE_REPO")
-          if [ "$DRY_RUN" = "false" ]; then args+=(--no-dry-run); else args+=(--dry-run); fi
+          if [ "$PREVIEW" = "false" ]; then args+=(--no-preview); else args+=(--preview); fi
           python3 -m dsl_course.derive "${args[@]}"

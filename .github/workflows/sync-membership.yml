@@ -10,15 +10,15 @@ on:
       # The registry is the other half of the course's own config, and its digest issue is
       # the same one - so an edit to either is checked and mailed within the minute rather
       # than waiting for the scheduler's next tick.
-      - cohort-courses-pages.yml
+      - semesters.yml
   repository_dispatch:
     types: [sync-membership]
   schedule:
     - cron: "13 6 * * *"
   workflow_dispatch:
     inputs:
-      cohort_org:
-        description: "Cohort org"
+      semester_org:
+        description: "Semester org"
         required: true
         type: choice
         default: "(faculty only)"
@@ -78,10 +78,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           COURSE: ${{ github.repository_owner }}
-          COHORT_ORG: ${{ inputs.cohort_org }}
+          SEMESTER_ORG: ${{ inputs.semester_org }}
         run: |
-          args=(--course-org "$COURSE")
-          [ "$COHORT_ORG" != "(faculty only)" ] && args+=(--cohort-org "$COHORT_ORG")
+          args=(--course-org "$COURSE" --no-preview)
+          [ "$SEMESTER_ORG" != "(faculty only)" ] && args+=(--semester-org "$SEMESTER_ORG")
           python3 -m dsl_course.sync_membership "${args[@]}"
       - name: Close the failure issue once a run succeeds
         if: success()
@@ -122,9 +122,11 @@ jobs:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           COURSE: ${{ github.repository_owner }}
           EVENT: ${{ github.event_name }}
-          DISPATCH_COHORT: ${{ github.event.client_payload.cohort_org }}
+          DISPATCH_SEMESTER: ${{ github.event.client_payload.semester_org }}
           # The JSON boolean `true` and nothing else - a string "true" or a 1 is absent.
-          DISPATCH_ALL: ${{ toJSON(github.event.client_payload.all_cohorts) == 'true' }}
+          DISPATCH_ALL: ${{ (toJSON(github.event.client_payload.all_semesters) == 'true' || toJSON(github.event.client_payload.all_cohorts) == 'true') }}
+          OLD_PAYLOAD: ${{ github.event.client_payload.cohort_org }}
+          DEPRECATED_ALL: ${{ toJSON(github.event.client_payload.all_cohorts) == 'true' }}
 # A fault in the course org's own config is emailed to its admins from this step (see
 # dsl_course.notify.route_course), so the automatic job carries the transport and the
 # address list alongside the token. The manual button does not: somebody is standing at
@@ -136,19 +138,26 @@ jobs:
           DSL_MAINTAINER_EMAIL: ${{ secrets.DSL_MAINTAINER_EMAIL }}
           DSL_COURSE_ADMIN_EMAILS: ${{ secrets.DSL_COURSE_ADMIN_EMAILS }}
         run: |
+          if [ -n "$OLD_PAYLOAD" ]; then
+            echo "::error::NOT_MIGRATED: this dispatch sends cohort_org, the old name of semester_org - run the migration"
+            exit 1
+          fi
+          if [ "$DEPRECATED_ALL" = "true" ]; then
+            echo "deprecated: this dispatch sends all_cohorts - read as all_semesters; switch the sender to all_semesters"
+          fi
           # First, and never fatal: a push to either of the course's own config files is
           # what this job is here for, and the reconcile below is what SKIPS the course
           # when one of them cannot be read. Its own digest issue and mail are the report.
-          python3 -m dsl_course.scheduler --course-org "$COURSE" --check-course-config
-          args=(--course-org "$COURSE")
+          python3 -m dsl_course.scheduler --course-org "$COURSE" --check-course-config --no-preview
+          args=(--course-org "$COURSE" --no-preview)
           case "$EVENT" in
-            schedule) args+=(--all-cohorts) ;;
+            schedule) args+=(--all-semesters) ;;
             repository_dispatch)
-              # A named cohort wins over all_cohorts.
-              if [ -n "$DISPATCH_COHORT" ]; then
-                args+=(--cohort-org "$DISPATCH_COHORT")
+              # A named semester wins over all_semesters.
+              if [ -n "$DISPATCH_SEMESTER" ]; then
+                args+=(--semester-org "$DISPATCH_SEMESTER")
               elif [ "$DISPATCH_ALL" = "true" ]; then
-                args+=(--all-cohorts)
+                args+=(--all-semesters)
               fi ;;
           esac
           python3 -m dsl_course.sync_membership "${args[@]}" 2>&1 | tee "$RUNNER_TEMP/run.log"
@@ -169,7 +178,7 @@ jobs:
           # because broken infrastructure is not the teaching staff's problem.
           # Teaching staff read these too (course-admin is mentioned below), and a
           # broken run is not theirs to fix - so the note says who is already on it.
-          note=$(printf '%s\nThe toolkit maintainer has been emailed the log - nothing for teaching staff to do.\n' "$note")
+          note=$(printf '%s\nThe toolkit maintainer has been emailed the log - nothing for the instructors to do.\n' "$note")
           body=$(printf '%s\ncc @%s/course-admin\n' "$note" "${REPO%%/*}")
           # The step runs under `bash -e`, so an unguarded capture would abort the step on a
           # transient search failure - before the `gh issue create` that is the whole point.

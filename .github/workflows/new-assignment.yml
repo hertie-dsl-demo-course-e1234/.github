@@ -11,8 +11,8 @@ on:
       assignment_number:
         description: "2. Assignment number, e.g. 1"
         required: true
-      semester_tag:
-        description: "3. Year tag, e.g. f2026 or s2026 - creates assignment-<number>-<tag>"
+      semester:
+        description: "3. Semester, e.g. f2026 or s2026 - creates assignment-<number>-<semester>"
         required: true
       copy_from:
         description: "4. Copy an existing template forward instead - both branches, whole history. Boxes 5-10 are then ignored"
@@ -27,8 +27,8 @@ on:
           - assignment-5-f2026
           - assignment-6-f2026
           - assignment-7-f2026
-      format:
-        description: "5. Starter file(s) to seed, comma-separated: ipynb, py, rmd, qmd, latex - or none for the README.md only. (course default) = the course's assignment_defaults, else ipynb"
+      formats:
+        description: "5. Starter file(s) to seed, comma-separated: ipynb, py, rmd, qmd, latex - or none for the README.md only. The first is the runnable one. (course default) = the course's default, else the institution policy's"
         default: "(course default)"
       type:
         description: "6. individual = one repo per student; group = one repo per team (teams.csv)"
@@ -38,7 +38,7 @@ on:
           - individual
           - group
       team_formation:
-        description: "7. Group only: self_select = students use the Join team form; assigned = you write teams.csv. (course default) = the course's assignment_defaults, else self_select"
+        description: "7. Group only: self_select = students use the Join team form; assigned = you write teams.csv. (course default) = the course's default, else the institution policy's"
         type: choice
         default: "(course default)"
         options:
@@ -46,7 +46,7 @@ on:
           - self_select
           - assigned
       submit_via:
-        description: "8. Where students hand in. assignment_repo = they push to their repo and the cutoff, receipts and late window apply; external = handed in elsewhere (Moodle, Kaggle, in class): no repo is created, the brief and a submit link appear on the site; shared_dropbox_repo = one private repo for the whole cohort, each student pushes into their own folder, peers can read it. (course default) = the course's assignment_defaults, else assignment_repo"
+        description: "8. Where students hand in. assignment_repo = they push to their repo and the late cutoff, receipts and late window apply; external = handed in elsewhere (Moodle, Kaggle, in class): no repo is created, the brief and a submit link appear on the site; shared_dropbox_repo = one private repo for the whole semester, each student pushes into their own folder, peers can read it. (course default) = the course's default, else assignment_repo"
         type: choice
         default: "(course default)"
         options:
@@ -55,11 +55,11 @@ on:
           - shared_dropbox_repo
           - external
       autograde:
-        description: "9. Also run hidden tests at the cutoff. Seeds tests/ on the solution branch for you to fill; each submission's pass count automatically appears on the grading sheet as a first pass for graders - not shown to students"
+        description: "9. Also run hidden tests at the late cutoff. Seeds tests/ on the solution branch for you to fill; each submission's pass count automatically appears on the grading sheet as a first pass for graders - not shown to students"
         type: boolean
         default: false
       visibility:
-        description: "10. Who may read each student's repo. private = the student and the teaching team; public = the whole internet, for portfolio work such as a hackathon; student_choice = private, but the student is its admin and may publish it once the grading cutoff has passed. Read when the repo is created: editing it later changes nothing. (course default) = the course's assignment_defaults, else private"
+        description: "10. Who may read each student's repo. private = the student and the instructors; public = the whole internet, for portfolio work such as a hackathon; student_choice = private, but the student is its admin and may publish it once the grading cutoff has passed. Read when the repo is created: editing it later changes nothing. (course default) = the course's default, else the institution policy's"
         type: choice
         default: "(course default)"
         options:
@@ -118,9 +118,9 @@ jobs:
           ORG: ${{ github.repository_owner }}
           NAME: ${{ inputs.assignment_name }}
           NUMBER: ${{ inputs.assignment_number }}
-          TAG: ${{ inputs.semester_tag }}
+          SEMESTER: ${{ inputs.semester }}
           COPY_FROM: ${{ inputs.copy_from }}
-          FORMAT: ${{ inputs.format }}
+          FORMATS: ${{ inputs.formats }}
           TYPE: ${{ inputs.type }}
           TEAM_FORMATION: ${{ inputs.team_formation }}
           SUBMIT_VIA: ${{ inputs.submit_via }}
@@ -128,8 +128,8 @@ jobs:
           AUTOGRADE: ${{ inputs.autograde }}
         run: |
           gh auth setup-git
-          args=(--org "$ORG" --number "$NUMBER" --tag "$TAG" --name "$NAME" \
-            --format "$FORMAT" --type "$TYPE" --team-formation "$TEAM_FORMATION" \
+          args=(--org "$ORG" --number "$NUMBER" --semester "$SEMESTER" --name "$NAME" \
+            --formats "$FORMATS" --type "$TYPE" --team-formation "$TEAM_FORMATION" \
             --submit-via "$SUBMIT_VIA" --visibility "$VISIBILITY" \
             --autograde "$AUTOGRADE")
           [ "$COPY_FROM" = "(fresh starter)" ] && COPY_FROM=""

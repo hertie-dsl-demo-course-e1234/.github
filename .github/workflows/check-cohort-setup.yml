@@ -1,18 +1,18 @@
 # SYSTEM-OWNED - do not edit, edits here are overwritten. This workflow is
 # re-rendered from the central DSL teaching toolkit by 'Refresh actions' (nightly).
-name: Check cohort setup
+name: Check semester setup
 
-# A per-cohort glance view of everything configured (and everything still missing),
+# A per-semester glance view of everything configured (and everything still missing),
 # with direct links to fix it. Read-only - this workflow changes nothing.
 # It carries the GRAPH_* secrets to REPORT on them (present/absent only - no value is
 # printed), never to send: this is where a missing mail transport is meant to be caught,
-# before a roster push tries to mail a cohort its codes.
+# before a roster push tries to mail a semester its codes.
 
 on:
   workflow_dispatch:
     inputs:
-      cohort_org:
-        description: "Cohort org"
+      semester_org:
+        description: "Semester org"
         required: true
         type: choice
         default: "hertie-dsl-demo-f2026"
@@ -63,15 +63,15 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
       - run: pip install -r requirements.txt
-      - name: Check cohort setup
+      - name: Check semester setup
         env:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           COURSE: ${{ github.repository_owner }}
-          COHORT_ORG: ${{ inputs.cohort_org }}
+          SEMESTER_ORG: ${{ inputs.semester_org }}
           GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
           GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
           GRAPH_CLIENT_CERT: ${{ secrets.GRAPH_CLIENT_CERT }}
           GRAPH_SENDER: ${{ secrets.GRAPH_SENDER }}
           DSL_MAINTAINER_EMAIL: ${{ secrets.DSL_MAINTAINER_EMAIL }}
         run: |
-          python3 -m dsl_course.status --course-org "$COURSE" --cohort-org "$COHORT_ORG" >> "$GITHUB_STEP_SUMMARY"
+          python3 -m dsl_course.status --course-org "$COURSE" --semester-org "$SEMESTER_ORG" --preview >> "$GITHUB_STEP_SUMMARY"

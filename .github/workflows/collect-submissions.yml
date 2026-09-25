@@ -13,8 +13,8 @@ name: Collect submissions
 on:
   workflow_dispatch:
     inputs:
-      cohort_org:
-        description: "Cohort org (submissions)"
+      semester_org:
+        description: "Semester org (submissions)"
         required: true
         type: choice
         default: "hertie-dsl-demo-f2026"
@@ -38,10 +38,10 @@ on:
         description: "Only if TWO schedule.yml assignments hand out from this template: which one (the schedule key). Leave empty otherwise"
         required: false
         default: ""
-      dry_run:
-        description: "Preview only - show what WOULD be refreshed"
+      preview:
+        description: "Preview - show what WOULD be refreshed"
         type: boolean
-        default: false
+        default: true
 
 concurrency:
   group: ${{ github.repository }}-collect-submissions
@@ -96,13 +96,13 @@ jobs:
       - name: Collect submissions
         env:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
-          MASTER_ORG: ${{ github.repository_owner }}
-          COHORT_ORG: ${{ inputs.cohort_org }}
+          COURSE_ORG: ${{ github.repository_owner }}
+          SEMESTER_ORG: ${{ inputs.semester_org }}
           COURSE_SOURCE_REPO: ${{ inputs.course_source_repo }}
           SLUG: ${{ inputs.slug }}
-          DRY_RUN: ${{ inputs.dry_run }}
+          PREVIEW: ${{ inputs.preview }}
         run: |
-          args=(--master-org "$MASTER_ORG" --course-source-repo "$COURSE_SOURCE_REPO" --cohort-org "$COHORT_ORG" --refresh-only)
+          args=(--course-org "$COURSE_ORG" --course-source-repo "$COURSE_SOURCE_REPO" --semester-org "$SEMESTER_ORG" --refresh-only)
           [ -n "$SLUG" ] && args+=(--slug "$SLUG")
-          [ "$DRY_RUN" = "true" ] && args+=(--dry-run)
+          if [ "$PREVIEW" = "false" ]; then args+=(--no-preview); else args+=(--preview); fi
           python3 -m dsl_course.collect "${args[@]}"

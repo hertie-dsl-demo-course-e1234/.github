@@ -2,36 +2,36 @@
 # re-rendered from the central DSL teaching toolkit by 'Refresh actions' (nightly).
 name: Distribute grades
 
-# Reads the grading sheets in classroom-config and sends what they hold: each student's
+# Reads the grading sheets in semester-config and sends what they hold: each student's
 # private grades-<handle> repo, the registrar export, and (unless silenced) an email saying
 # there is something new to read. Nothing is posted into a submission repo, and nothing is
 # said twice - a re-run after one correction reaches one student.
 # There is no assignment to pick: every run rebuilds every gradebook from every sheet,
 # which is what keeps a gradebook the whole of a student's marks.
-# Dry run first; it writes no grades, sends no mail, and posts who gets what as a
-# "Distribute grades preview" issue in classroom-config. Needs the GRAPH_* secrets to mail.
+# Preview first; it writes no grades, sends no mail, and posts who gets what as a
+# "Distribute grades preview" issue in semester-config. Needs the GRAPH_* secrets to mail.
 
 on:
   workflow_dispatch:
     inputs:
-      cohort_org:
-        description: "Cohort org"
+      semester_org:
+        description: "Semester org"
         required: true
         type: choice
         default: "hertie-dsl-demo-f2026"
         options:
           - hertie-dsl-demo-f2025
           - hertie-dsl-demo-f2026
-      dry_run:
-        description: "Preview who gets what, as an issue in classroom-config - push no grades, send nothing"
+      preview:
+        description: "Preview who gets what, as an issue in semester-config - push no grades, send nothing"
         type: boolean
         default: true
-      silent:
-        description: "Skip the email notification (just push the grades)"
+      notify:
+        description: "Email each student that their marks are in (off = just push the grades)"
         type: boolean
-        default: false
+        default: true
       receipt_note:
-        description: "Also post 'Marks returned: see your marks repo.' once on each student's receipts issue"
+        description: "Also post 'Marks returned: see your marks repo.' once on each student's Submission receipts issue"
         type: boolean
         default: false
       include_feedback:
@@ -89,9 +89,9 @@ jobs:
       - name: Distribute grades
         env:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
-          COHORT_ORG: ${{ inputs.cohort_org }}
-          DRY_RUN: ${{ inputs.dry_run }}
-          SILENT: ${{ inputs.silent }}
+          SEMESTER_ORG: ${{ inputs.semester_org }}
+          PREVIEW: ${{ inputs.preview }}
+          NOTIFY: ${{ inputs.notify }}
           RECEIPT_NOTE: ${{ inputs.receipt_note }}
           INCLUDE_FEEDBACK: ${{ inputs.include_feedback }}
           GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
@@ -100,9 +100,9 @@ jobs:
           GRAPH_SENDER: ${{ secrets.GRAPH_SENDER }}
           DSL_MAINTAINER_EMAIL: ${{ secrets.DSL_MAINTAINER_EMAIL }}
         run: |
-          args=(--cohort-org "$COHORT_ORG")
-          if [ "$DRY_RUN" = "false" ]; then args+=(--no-dry-run); else args+=(--dry-run); fi
-          [ "$SILENT" = "true" ] && args+=(--no-notify)
+          args=(--semester-org "$SEMESTER_ORG")
+          if [ "$PREVIEW" = "false" ]; then args+=(--no-preview); else args+=(--preview); fi
+          [ "$NOTIFY" = "false" ] && args+=(--no-notify)
           [ "$RECEIPT_NOTE" = "true" ] && args+=(--receipt-note)
           [ "$INCLUDE_FEEDBACK" = "true" ] && args+=(--include-feedback)
           python3 -m dsl_course.grades distribute "${args[@]}"

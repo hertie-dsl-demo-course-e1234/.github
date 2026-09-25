@@ -67,7 +67,7 @@ jobs:
           # because broken infrastructure is not the teaching staff's problem.
           # Teaching staff read these too (course-admin is mentioned below), and a
           # broken run is not theirs to fix - so the note says who is already on it.
-          note=$(printf '%s\nThe toolkit maintainer has been emailed the log - nothing for teaching staff to do.\n' "$note")
+          note=$(printf '%s\nThe toolkit maintainer has been emailed the log - nothing for the instructors to do.\n' "$note")
           body=$(printf '%s\ncc @%s/course-admin\n' "$note" "${REPO%%/*}")
           # The step runs under `bash -e`, so an unguarded capture would abort the step on a
           # transient search failure - before the `gh issue create` that is the whole point.

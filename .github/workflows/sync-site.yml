@@ -13,8 +13,8 @@ on:
     - cron: "41 6 * * *"
   workflow_dispatch:
     inputs:
-      cohort_org:
-        description: "Cohort whose site to regenerate from the org structure"
+      semester_org:
+        description: "Semester whose site to regenerate from the org structure"
         required: true
         type: choice
         default: "hertie-dsl-demo-f2026"
@@ -73,10 +73,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           COURSE: ${{ github.repository_owner }}
-          COHORT_ORG: ${{ inputs.cohort_org }}
+          SEMESTER_ORG: ${{ inputs.semester_org }}
         run: |
           gh auth setup-git
-          python3 -m dsl_course.site sync --course-org "$COURSE" --cohort-org "$COHORT_ORG"
+          python3 -m dsl_course.site sync --course-org "$COURSE" --semester-org "$SEMESTER_ORG"
       - name: Close the failure issue once a run succeeds
         if: success()
         env:
@@ -116,17 +116,22 @@ jobs:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           COURSE: ${{ github.repository_owner }}
           EVENT: ${{ github.event_name }}
-          DISPATCH_COHORT: ${{ github.event.client_payload.cohort_org }}
+          DISPATCH_SEMESTER: ${{ github.event.client_payload.semester_org }}
+          OLD_PAYLOAD: ${{ github.event.client_payload.cohort_org }}
         run: |
+          if [ -n "$OLD_PAYLOAD" ]; then
+            echo "::error::NOT_MIGRATED: this dispatch sends cohort_org, the old name of semester_org - run the migration"
+            exit 1
+          fi
           gh auth setup-git
           args=(--course-org "$COURSE")
           case "$EVENT" in
-            push|schedule) args+=(--all-cohorts) ;;
+            push|schedule) args+=(--all-semesters) ;;
             repository_dispatch)
-              if [ -n "$DISPATCH_COHORT" ]; then
-                args+=(--cohort-org "$DISPATCH_COHORT")
+              if [ -n "$DISPATCH_SEMESTER" ]; then
+                args+=(--semester-org "$DISPATCH_SEMESTER")
               else
-                args+=(--all-cohorts)
+                args+=(--all-semesters)
               fi ;;
           esac
           python3 -m dsl_course.site sync "${args[@]}" 2>&1 | tee "$RUNNER_TEMP/run.log"
@@ -147,7 +152,7 @@ jobs:
           # because broken infrastructure is not the teaching staff's problem.
           # Teaching staff read these too (course-admin is mentioned below), and a
           # broken run is not theirs to fix - so the note says who is already on it.
-          note=$(printf '%s\nThe toolkit maintainer has been emailed the log - nothing for teaching staff to do.\n' "$note")
+          note=$(printf '%s\nThe toolkit maintainer has been emailed the log - nothing for the instructors to do.\n' "$note")
           body=$(printf '%s\ncc @%s/course-admin\n' "$note" "${REPO%%/*}")
           # The step runs under `bash -e`, so an unguarded capture would abort the step on a
           # transient search failure - before the `gh issue create` that is the whole point.
