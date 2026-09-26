@@ -27,11 +27,6 @@ on:
           - assignment-5-f2026
           - assignment-6-f2026
           - assignment-7-f2026
-          - assignment-90-e2e931eef-external
-          - assignment-90-e2e931eef-private
-          - assignment-90-e2e931eef-public
-          - assignment-90-e2e931eef-shared
-          - assignment-90-e2e931eef-student-choice
       formats:
         description: "5. Starter file(s) to seed, comma-separated: ipynb, py, rmd, qmd, latex - or none for the README.md only. The first is the runnable one. (course default) = the course's default, else the institution policy's"
         default: "(course default)"
