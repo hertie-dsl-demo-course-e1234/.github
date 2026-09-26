@@ -20,7 +20,7 @@ on:
         description: "Assignment template to derive the student starter for"
         required: true
         type: choice
-        default: "assignment-7-f2026"
+        default: "assignment-90-f2026"
         options:
           - assignment-1-f2026
           - assignment-2-f2026
@@ -29,6 +29,7 @@ on:
           - assignment-5-f2026
           - assignment-6-f2026
           - assignment-7-f2026
+          - assignment-90-f2026
       preview:
         description: "Preview - list the files and how much would be stripped out of each"
         type: boolean
