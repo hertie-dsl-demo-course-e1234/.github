@@ -8,9 +8,10 @@ name: New materials repo
 # arrive exactly as you left them. Leave it on the first option for a fresh starter.
 # The dropdown is refreshed by the 'Refresh actions' workflow.
 #
-# The last two boxes write the new repo's `publish.yml` - what the semester site may host
-# publicly, so an HTML deck opens rendered in a browser instead of showing as source on
-# GitHub. Everything else stays private, exactly as today. They seed the file and nothing
+# The last two boxes write the new repo's `publish.yml` - what the public website may
+# publish, so an HTML deck opens rendered in a browser instead of showing as source on
+# GitHub. Not used yet: the toolkit records the selection until the public website is
+# rebuilt. Everything else stays private. They seed the file and nothing
 # more: edit it in the repo afterwards, and no workflow rewrites it. A copied repo brings
 # its own, so they are ignored on `copy_from`.
 
@@ -29,7 +30,7 @@ on:
           - course-materials-f2025
           - course-materials-f2026
       public_dirs:
-        description: "Rendered publicly on the semester site: which folders. Everything else stays private to enrolled students"
+        description: "For the public website: which folders. Everything else stays private to enrolled students"
         type: choice
         default: "(nothing public)"
         options:
@@ -38,7 +39,7 @@ on:
           - everything except readings
           - everything
       public_types:
-        description: "Rendered publicly on the semester site: which file types out of those folders"
+        description: "For the public website: which file types out of those folders"
         type: choice
         default: "html + pdf"
         options:
