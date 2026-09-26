@@ -35,6 +35,7 @@ on:
           - assignment-6-f2026
           - assignment-7-f2026
           - assignment-90-e2e931eef-private
+          - assignment-90-e2e931eef-public
       assignment:
         description: "Only if two schedule.yml entries share this template: the one to act on (its key)"
         required: false
