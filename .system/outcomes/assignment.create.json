@@ -1,0 +1,15 @@
+{
+  "actor": "henrycgbaker",
+  "block": "",
+  "conclusion": "done",
+  "counts": {},
+  "details": [],
+  "finished": "2026-09-26T15:35:41Z",
+  "op": "assignment.create",
+  "preview": false,
+  "reasons": [],
+  "run_id": 36252385736,
+  "schema": "dsl.outcome/1",
+  "started": "2026-09-26T15:34:14Z",
+  "summary": "Assignment template created."
+}
