@@ -51,6 +51,7 @@ course_description: "A public demonstration course run by the Hertie Data Scienc
 people:
   course_admins:
     - github_handle: "henrycgbaker"
+    - github_handle: "huydang90"
   instructors:
     - name: "Prof. Lynn Kaack, PhD"
       title: "Assistant Professor of Computer Science and Public Policy"
