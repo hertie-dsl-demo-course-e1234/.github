@@ -30,6 +30,7 @@ List of all repositories associated with the course org. _Auto-discovered from t
 | --- | --- | --- |
 | [assignment-1-f2025](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2025) | private | Assignment 1 f2025 |
 | [assignment-1-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2026) | public | Assignment 1 template |
+| [assignment-2-f2025](https://github.com/hertie-dsl-demo-course-e1234/assignment-2-f2025) | private | Assignment 2 f2025 |
 | [assignment-2-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-2-f2026) | public | Assignment 2 template |
 | [assignment-3-project-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-3-project-f2026) | public | Assignment 3-project template |
 | [assignment-4-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-4-f2026) | private | Assignment 4: Hackathon showcase |
