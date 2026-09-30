@@ -22,19 +22,8 @@ on:
           - hertie-dsl-demo-f2025
           - hertie-dsl-demo-f2026
       course_source_repo:
-        description: "Course-org repo to hand out from"
+        description: "Course-org repo to hand out from (e.g. assignment-linear-regression)"
         required: true
-        type: choice
-        default: "assignment-8-f2026"
-        options:
-          - assignment-1-f2026
-          - assignment-2-f2026
-          - assignment-3-project-f2026
-          - assignment-4-f2026
-          - assignment-5-f2026
-          - assignment-6-f2026
-          - assignment-7-f2026
-          - assignment-8-f2026
       assignment:
         description: "Only if two schedule.yml entries share this template: the one to act on (its key)"
         required: false

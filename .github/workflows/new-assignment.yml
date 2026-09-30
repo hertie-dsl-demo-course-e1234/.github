@@ -6,40 +6,20 @@ on:
   workflow_dispatch:
     inputs:
       assignment_name:
-        description: "1. The assignment's name, e.g. Neural networks from scratch"
+        description: "1. The assignment's name, e.g. Neural networks from scratch - creates assignment-<name>"
         required: true
-      assignment_number:
-        description: "2. Assignment number, e.g. 1"
-        required: true
-      semester:
-        description: "3. Semester, e.g. f2026 or s2026 - creates assignment-<number>-<semester>"
-        required: true
-      copy_from:
-        description: "4. Copy an existing template forward instead - both branches, whole history. Boxes 5-8 are then ignored"
-        required: false
-        type: choice
-        options:
-          - (fresh starter)
-          - assignment-1-f2026
-          - assignment-2-f2026
-          - assignment-3-project-f2026
-          - assignment-4-f2026
-          - assignment-5-f2026
-          - assignment-6-f2026
-          - assignment-7-f2026
-          - assignment-8-f2026
       formats:
-        description: "5. Starter file(s) to seed, comma-separated: ipynb, py, rmd, qmd, latex - or none for the README.md only. The first is the runnable one. (course default) = the course's default, else the institution policy's"
+        description: "2. Starter file(s) to seed, comma-separated: ipynb, py, rmd, qmd, latex - or none for the README.md only. The first is the runnable one. (course default) = the course's default, else the institution policy's"
         default: "(course default)"
       type:
-        description: "6. individual = one repo per student; group = one repo per team (teams.csv)"
+        description: "3. individual = one repo per student; group = one repo per team (teams.csv)"
         type: choice
         default: "individual"
         options:
           - individual
           - group
       submit_via:
-        description: "7. Where students hand in. assignment_repo = they push to their repo and the late cutoff, receipts and late window apply; external = handed in elsewhere (Moodle, Kaggle, in class): no repo is created, the brief and a submit link appear on the site; shared_dropbox_repo = one private repo for the whole semester, each student pushes into their own folder, peers can read it. (course default) = the course's default, else assignment_repo"
+        description: "4. Where students hand in. assignment_repo = they push to their repo and the late cutoff, receipts and late window apply; external = handed in elsewhere (Moodle, Kaggle, in class): no repo is created, the brief and a submit link appear on the site; shared_dropbox_repo = one private repo for the whole semester, each student pushes into their own folder, peers can read it. (course default) = the course's default, else assignment_repo"
         type: choice
         default: "(course default)"
         options:
@@ -48,7 +28,7 @@ on:
           - shared_dropbox_repo
           - external
       autograde:
-        description: "8. Also run hidden tests at the late cutoff. Seeds tests/ on the solution branch for you to fill; each submission's pass count automatically appears on the grading sheet as a first pass for graders - not shown to students"
+        description: "5. Also run hidden tests at the late cutoff. Seeds tests/ on the solution branch for you to fill; each submission's pass count automatically appears on the grading sheet as a first pass for graders - not shown to students"
         type: boolean
         default: false
 
@@ -101,19 +81,13 @@ jobs:
           DSL_BOT_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           ORG: ${{ github.repository_owner }}
           NAME: ${{ inputs.assignment_name }}
-          NUMBER: ${{ inputs.assignment_number }}
-          SEMESTER: ${{ inputs.semester }}
-          COPY_FROM: ${{ inputs.copy_from }}
           FORMATS: ${{ inputs.formats }}
           TYPE: ${{ inputs.type }}
           SUBMIT_VIA: ${{ inputs.submit_via }}
           AUTOGRADE: ${{ inputs.autograde }}
         run: |
           gh auth setup-git
-          args=(--org "$ORG" --number "$NUMBER" --semester "$SEMESTER" --name "$NAME" \
-            --formats "$FORMATS" --type "$TYPE" --submit-via "$SUBMIT_VIA" \
-            --autograde "$AUTOGRADE")
-          [ "$COPY_FROM" = "(fresh starter)" ] && COPY_FROM=""
-          [ -n "$COPY_FROM" ] && args+=(--copy-from "$COPY_FROM")
+          args=(--org "$ORG" --name "$NAME" --formats "$FORMATS" --type "$TYPE" \
+            --submit-via "$SUBMIT_VIA" --autograde "$AUTOGRADE")
           python3 -m dsl_course.scaffold assignment "${args[@]}"
           python3 -m dsl_course.seed refresh --course-org "$ORG"
