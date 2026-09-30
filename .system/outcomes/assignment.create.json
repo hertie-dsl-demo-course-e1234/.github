@@ -4,12 +4,12 @@
   "conclusion": "done",
   "counts": {},
   "details": [],
-  "finished": "2026-09-30T09:51:53Z",
+  "finished": "2026-09-30T09:54:58Z",
   "op": "assignment.create",
   "preview": false,
   "reasons": [],
-  "run_id": 36698612874,
+  "run_id": 36698885931,
   "schema": "dsl.outcome/1",
-  "started": "2026-09-30T09:50:10Z",
+  "started": "2026-09-30T09:52:50Z",
   "summary": "Assignment template created."
 }
