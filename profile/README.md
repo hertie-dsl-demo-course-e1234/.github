@@ -28,6 +28,7 @@ List of all repositories associated with the course org. _Auto-discovered from t
 
 | Repo | Visibility | Description |
 | --- | --- | --- |
+| [assignment-1-f2025](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2025) | private | Assignment 1 f2025 |
 | [assignment-1-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-1-f2026) | public | Assignment 1 template |
 | [assignment-2-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-2-f2026) | public | Assignment 2 template |
 | [assignment-3-project-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-3-project-f2026) | public | Assignment 3-project template |
@@ -35,7 +36,7 @@ List of all repositories associated with the course org. _Auto-discovered from t
 | [assignment-5-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-5-f2026) | private | Assignment 5: Portfolio piece |
 | [assignment-6-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-6-f2026) | private | Assignment 6: Referee reports |
 | [assignment-7-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-7-f2026) | private | Assignment 7: Moodle essay |
-| [assignment-8-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-8-f2026) | private | Assignment 8: test |
+| [assignment-8-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-8-f2026) | private | Policy brief in LaTeX |
 | [course-materials-f2025](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [course-materials-f2026](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [hertie-dsl-demo-course-e1234.github.io](https://github.com/hertie-dsl-demo-course-e1234/hertie-dsl-demo-course-e1234.github.io) | public | [do not touch]: Course website (auto-deployed) |
