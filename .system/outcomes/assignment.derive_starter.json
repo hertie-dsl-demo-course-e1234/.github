@@ -1,7 +1,7 @@
 {
   "actor": "henrycgbaker",
   "block": "",
-  "conclusion": "done",
+  "conclusion": "previewed",
   "counts": {
     "files": 1,
     "refused": 0
@@ -9,12 +9,12 @@
   "details": [
     "solution/starter.ipynb -> starter.ipynb: 10 region(s), 0 cell(s)/chunk(s) replaced"
   ],
-  "finished": "2026-10-01T16:32:53Z",
+  "finished": "2026-10-01T16:34:14Z",
   "op": "assignment.derive_starter",
-  "preview": false,
+  "preview": true,
   "reasons": [],
-  "run_id": 36892777622,
+  "run_id": 36892952462,
   "schema": "dsl.outcome/1",
-  "started": "2026-10-01T16:32:50Z",
-  "summary": "Derived 1 file onto main."
+  "started": "2026-10-01T16:34:13Z",
+  "summary": "Would derive 1 file onto main."
 }
