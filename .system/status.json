@@ -189,7 +189,7 @@
       {
         "repo": "assignment-2-f2026",
         "slug": "assignment-2-f2026",
-        "state": "todo",
+        "state": "ready",
         "starter": "derived"
       },
       {
@@ -295,14 +295,6 @@
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-2-f2025"
-      },
-      {
-        "id": "template:assignment-2-f2026:starter",
-        "kind": "template",
-        "repo": "assignment-2-f2026",
-        "text": "Derive has not been run yet.",
-        "screen": "template",
-        "entry": "assignment-2-f2026"
       },
       {
         "id": "template:assignment-4-f2026:starter",
