@@ -18,6 +18,22 @@
       "C6": "done"
     },
     "stage_why": {},
+    "stage_optional": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": true,
+      "C5": true,
+      "C6": true
+    },
+    "stage_set_aside": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false
+    },
     "ready": true,
     "materials": [
       {
@@ -232,7 +248,9 @@
         "repo": "course-materials-f2025",
         "text": "There is no SYLLABUS.md yet.",
         "screen": "materials",
-        "entry": "course-materials-f2025"
+        "entry": "course-materials-f2025",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "materials:course-materials-f2025:sessions",
@@ -240,7 +258,9 @@
         "repo": "course-materials-f2025",
         "text": "The weekly plan is not in SYLLABUS.md yet.",
         "screen": "materials",
-        "entry": "course-materials-f2025"
+        "entry": "course-materials-f2025",
+        "optional": true,
+        "set_aside": false
       },
       {
         "id": "materials:course-materials-f2025:withheld",
@@ -248,7 +268,9 @@
         "repo": "course-materials-f2025",
         "text": "Nothing is withheld from students yet; review the withheld patterns.",
         "screen": "materials",
-        "entry": "course-materials-f2025"
+        "entry": "course-materials-f2025",
+        "optional": true,
+        "set_aside": false
       },
       {
         "id": "materials:course-materials-f2026:sessions",
@@ -256,7 +278,9 @@
         "repo": "course-materials-f2026",
         "text": "The weekly plan is not in SYLLABUS.md yet.",
         "screen": "materials",
-        "entry": "course-materials-f2026"
+        "entry": "course-materials-f2026",
+        "optional": true,
+        "set_aside": false
       },
       {
         "id": "materials:course-materials-f2026:withheld",
@@ -264,7 +288,9 @@
         "repo": "course-materials-f2026",
         "text": "Nothing is withheld from students yet; review the withheld patterns.",
         "screen": "materials",
-        "entry": "course-materials-f2026"
+        "entry": "course-materials-f2026",
+        "optional": true,
+        "set_aside": false
       },
       {
         "id": "template:assignment-1-f2025:starter",
@@ -272,7 +298,9 @@
         "repo": "assignment-1-f2025",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-1-f2025"
+        "entry": "assignment-1-f2025",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-1-f2026:starter",
@@ -280,7 +308,9 @@
         "repo": "assignment-1-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-1-f2026"
+        "entry": "assignment-1-f2026",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-2-f2025:starter",
@@ -288,7 +318,9 @@
         "repo": "assignment-2-f2025",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-2-f2025"
+        "entry": "assignment-2-f2025",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-4-f2026:starter",
@@ -296,7 +328,9 @@
         "repo": "assignment-4-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-4-f2026"
+        "entry": "assignment-4-f2026",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-5-f2026:starter",
@@ -304,7 +338,9 @@
         "repo": "assignment-5-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-5-f2026"
+        "entry": "assignment-5-f2026",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-6-f2026:starter",
@@ -312,7 +348,9 @@
         "repo": "assignment-6-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-6-f2026"
+        "entry": "assignment-6-f2026",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-7-f2026:starter",
@@ -320,7 +358,9 @@
         "repo": "assignment-7-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-7-f2026"
+        "entry": "assignment-7-f2026",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-8-f2026:brief",
@@ -328,7 +368,9 @@
         "repo": "assignment-8-f2026",
         "text": "The brief (README.md) is not written yet.",
         "screen": "template",
-        "entry": "assignment-8-f2026"
+        "entry": "assignment-8-f2026",
+        "optional": false,
+        "set_aside": false
       },
       {
         "id": "template:assignment-8-f2026:starter",
@@ -336,7 +378,9 @@
         "repo": "assignment-8-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
-        "entry": "assignment-8-f2026"
+        "entry": "assignment-8-f2026",
+        "optional": false,
+        "set_aside": false
       }
     ]
   },
