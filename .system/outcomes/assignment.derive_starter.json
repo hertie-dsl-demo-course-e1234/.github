@@ -1,13 +1,23 @@
 {
   "actor": "henrycgbaker",
+  "block": "",
   "conclusion": "failed",
-  "counts": {},
-  "finished": "2026-09-24T10:13:29Z",
+  "counts": {
+    "files": 0,
+    "refused": 1
+  },
+  "details": [],
+  "finished": "2026-10-01T11:26:22Z",
   "op": "assignment.derive_starter",
-  "preview": false,
-  "reasons": [],
-  "run_id": 35985948397,
+  "preview": true,
+  "reasons": [
+    {
+      "code": "NO_SOLUTION_REGION",
+      "text": "solution/solution.py has no BEGIN SOLUTION region, no solution cell tag and no solution=TRUE chunk, so the starter would be the model answer."
+    }
+  ],
+  "run_id": 36855342687,
   "schema": "dsl.outcome/1",
-  "started": "2026-09-24T10:13:28Z",
-  "summary": "Stopped with a problem; the run log says where."
+  "started": "2026-10-01T11:26:21Z",
+  "summary": "Would derive 0 files onto main; 1 file could not be derived."
 }
