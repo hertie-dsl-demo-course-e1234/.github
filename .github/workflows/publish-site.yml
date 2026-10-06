@@ -108,8 +108,7 @@ jobs:
           COURSE_ORG: ${{ github.repository_owner }}
         run: |
           gh auth setup-git
-          python3 -m dsl_course.site public-sync --course-org "$COURSE_ORG" --daily 2>&1 | tee "$RUNNER_TEMP/run.log"
-          exit "${PIPESTATUS[0]}"
+          exec python3 -m dsl_course.site public-sync --course-org "$COURSE_ORG" --daily > >(tee "$RUNNER_TEMP/run.log") 2>&1
       - name: Report an unattended failure as an issue
         id: notice
         if: (failure() || cancelled()) && github.event_name != 'workflow_dispatch'

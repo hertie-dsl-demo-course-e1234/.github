@@ -49,8 +49,7 @@ jobs:
           DSL_BOT_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           COURSE: ${{ github.repository_owner }}
         run: |
-          python3 -m dsl_course.seed refresh --course-org "$COURSE" 2>&1 | tee "$RUNNER_TEMP/run.log"
-          exit "${PIPESTATUS[0]}"
+          exec python3 -m dsl_course.seed refresh --course-org "$COURSE" > >(tee "$RUNNER_TEMP/run.log") 2>&1
       - name: Report an unattended failure as an issue
         id: notice
         if: (failure() || cancelled()) && github.event_name != 'workflow_dispatch'

@@ -160,8 +160,7 @@ jobs:
                 args+=(--all-semesters)
               fi ;;
           esac
-          python3 -m dsl_course.sync_membership "${args[@]}" 2>&1 | tee "$RUNNER_TEMP/run.log"
-          exit "${PIPESTATUS[0]}"
+          exec python3 -m dsl_course.sync_membership "${args[@]}" > >(tee "$RUNNER_TEMP/run.log") 2>&1
       - name: Report an unattended failure as an issue
         id: notice
         if: (failure() || cancelled()) && github.event_name != 'workflow_dispatch'

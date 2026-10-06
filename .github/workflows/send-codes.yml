@@ -69,9 +69,8 @@ jobs:
           # --dispatched-by names the course org whose registry authorises this semester:
           # the payload comes from a semester's bot token, so the semester it names is
           # untrusted input.
-          python3 -m dsl_course.enrol_codes --semester-org "$DISPATCH_SEMESTER" \
-            --dispatched-by "$COURSE" --no-preview 2>&1 | tee "$RUNNER_TEMP/run.log"
-          exit "${PIPESTATUS[0]}"
+          exec python3 -m dsl_course.enrol_codes --semester-org "$DISPATCH_SEMESTER" \
+            --dispatched-by "$COURSE" --no-preview > >(tee "$RUNNER_TEMP/run.log") 2>&1
       - name: Report an unattended failure as an issue
         id: notice
         if: (failure() || cancelled()) && github.event_name != 'workflow_dispatch'

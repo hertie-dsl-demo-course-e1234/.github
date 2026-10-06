@@ -74,11 +74,10 @@ jobs:
           DSL_MAINTAINER_EMAIL: ${{ secrets.DSL_MAINTAINER_EMAIL }}
         run: |
           gh auth setup-git
-          python -m dsl_course.console --request "$REQUEST" 2>&1 | tee "$RUNNER_TEMP/run.log"
-          exit "${PIPESTATUS[0]}"
+          exec python -m dsl_course.console --request "$REQUEST" > >(tee "$RUNNER_TEMP/run.log") 2>&1
       - name: Report a failed Console run as an issue
         id: notice
-        if: (failure() || cancelled()) && steps.gate.outcome == 'success'
+        if: failure() && steps.gate.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.DSL_BOT_TOKEN }}
           WORKFLOW: ${{ github.workflow }}
@@ -86,7 +85,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           title="$WORKFLOW is failing"
-          note=$(printf 'A Console run failed or was cancelled: %s\n\nThis issue closes itself once a Console run succeeds.\n' "$RUN_URL")
+          note=$(printf 'A Console run failed: %s\n\nThis issue closes itself once a Console run succeeds.\n' "$RUN_URL")
           # A filed issue emails only the repo's watchers, which in practice is nobody, so
           # the FIRST report mentions the org's admins; course-admin, not instructors,
           # because broken infrastructure is not the teaching staff's problem.
@@ -121,7 +120,7 @@ jobs:
           gh issue comment "${existing%% *}" --repo "$REPO" --body "$note"
           echo "report=true" >> "$GITHUB_OUTPUT"
       - name: Email the maintainer the failed step's log
-        if: (failure() || cancelled()) && steps.gate.outcome == 'success' && steps.notice.outputs.report == 'true'
+        if: failure() && steps.gate.outcome == 'success' && steps.notice.outputs.report == 'true'
         env:
           WORKFLOW: ${{ github.workflow }}
           COURSE: ${{ github.repository_owner }}
