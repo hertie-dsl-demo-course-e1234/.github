@@ -8,7 +8,6 @@
     "org": "hertie-dsl-demo-course-e1234",
     "name": "Deep Learning (Demo)",
     "code": "E1234",
-    "app_installed": null,
     "stages": {
       "C1": "done",
       "C2": "done",
