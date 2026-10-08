@@ -157,6 +157,23 @@ jobs:
           # together: a maintainer who gets an email can always find the issue it came
           # from, and a thread that is being kept quiet does not mail either.
           if [ -z "$existing" ]; then
+            # Two strikes: a first failure files and mails only if this job also failed
+            # in the previous run, so a one-off GitHub blip reaches nobody. Any lookup
+            # error reports. GITHUB_WORKFLOW_REF ends `<file>@<ref>`.
+            wf=${GITHUB_WORKFLOW_REF%@*}
+            prior=$(gh api "repos/$REPO/actions/workflows/${wf##*/}/runs?per_page=30" \
+              --jq ".workflow_runs[] | select(.id != $GITHUB_RUN_ID and .event != \"workflow_dispatch\" and ((.display_title // \"\") | startswith(\"Scheduled release for cohort\") | not)) | .id" | head -n 10) || prior=""
+            prev=""
+            for id in $prior; do
+              prev=$(gh api "repos/$REPO/actions/runs/$id/jobs" --paginate \
+                --jq ".jobs[] | select(.name == \"release\" and .conclusion != null and .conclusion != \"skipped\" and (.conclusion != \"cancelled\" or ((.steps // []) | length) > 0)) | .conclusion" | head -n 1) || prev=""
+              [ -n "$prev" ] && break
+            done
+            if [ "$prev" = "success" ]; then
+              echo "first failure since the last good run - no issue or mail yet; the next run reports if it fails too"
+              echo "report=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
             gh issue create --repo "$REPO" --title "$title" --body "$body"
             echo "report=true" >> "$GITHUB_OUTPUT"
             exit 0
@@ -358,6 +375,23 @@ jobs:
           # together: a maintainer who gets an email can always find the issue it came
           # from, and a thread that is being kept quiet does not mail either.
           if [ -z "$existing" ]; then
+            # Two strikes: a first failure files and mails only if this job also failed
+            # in the previous run, so a one-off GitHub blip reaches nobody. Any lookup
+            # error reports. GITHUB_WORKFLOW_REF ends `<file>@<ref>`.
+            wf=${GITHUB_WORKFLOW_REF%@*}
+            prior=$(gh api "repos/$REPO/actions/workflows/${wf##*/}/runs?per_page=30" \
+              --jq ".workflow_runs[] | select(.id != $GITHUB_RUN_ID and .event != \"workflow_dispatch\") | .id" | head -n 10) || prior=""
+            prev=""
+            for id in $prior; do
+              prev=$(gh api "repos/$REPO/actions/runs/$id/jobs" --paginate \
+                --jq ".jobs[] | select(.name == \"autograde $SEMESTER\" and .conclusion != null and .conclusion != \"skipped\" and (.conclusion != \"cancelled\" or ((.steps // []) | length) > 0)) | .conclusion" | head -n 1) || prev=""
+              [ -n "$prev" ] && break
+            done
+            if [ "$prev" = "success" ]; then
+              echo "first failure since the last good run - no issue or mail yet; the next run reports if it fails too"
+              echo "report=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
             gh issue create --repo "$REPO" --title "$title" --body "$body"
             echo "report=true" >> "$GITHUB_OUTPUT"
             exit 0
