@@ -4,6 +4,9 @@
     "dsl-course.yml": "2f996a8558c6d7f2637f677b97bace583eb9894e",
     "semesters.yml": "5072b80d60f1554622a49e7f423e015eb4ffbc56"
   },
+  "horizon": {
+    "days": 7
+  },
   "course": {
     "org": "hertie-dsl-demo-course-e1234",
     "name": "Deep Learning (Demo)",
@@ -17,6 +20,14 @@
       "C6": "done"
     },
     "stage_why": {},
+    "stage_need": {
+      "C1": "needed",
+      "C2": "needed",
+      "C3": "needed",
+      "C4": "suggested",
+      "C5": "suggested",
+      "C6": "suggested"
+    },
     "stage_optional": {
       "C1": false,
       "C2": false,
@@ -33,17 +44,24 @@
       "C5": false,
       "C6": false
     },
+    "verdict": {
+      "state": "ready",
+      "problems": 0,
+      "missing": null,
+      "suggestions": 4
+    },
     "ready": true,
     "materials": [
       {
         "repo": "course-materials-f2025",
-        "state": "todo",
+        "state": "ready",
         "checks": [
           {
             "id": "kind_folder",
             "label": "At least one folder of a content kind",
             "done": true,
             "why": null,
+            "need": "needed",
             "blocks": true,
             "detail": [
               {
@@ -80,16 +98,10 @@
           },
           {
             "id": "syllabus",
-            "label": "Syllabus written",
+            "label": "Syllabus",
             "done": false,
             "why": "There is no SYLLABUS.md yet.",
-            "blocks": true
-          },
-          {
-            "id": "sessions",
-            "label": "Weekly plan in the syllabus",
-            "done": false,
-            "why": "The weekly plan is not in SYLLABUS.md yet.",
+            "need": "suggested",
             "blocks": false
           },
           {
@@ -97,6 +109,7 @@
             "label": "Withheld patterns reviewed",
             "done": false,
             "why": "Nothing is withheld from students yet; review the withheld patterns.",
+            "need": "suggested",
             "blocks": false
           }
         ]
@@ -110,6 +123,7 @@
             "label": "At least one folder of a content kind",
             "done": true,
             "why": null,
+            "need": "needed",
             "blocks": true,
             "detail": [
               {
@@ -146,16 +160,10 @@
           },
           {
             "id": "syllabus",
-            "label": "Syllabus written",
-            "done": true,
-            "why": null,
-            "blocks": true
-          },
-          {
-            "id": "sessions",
-            "label": "Weekly plan in the syllabus",
+            "label": "Syllabus",
             "done": false,
-            "why": "The weekly plan is not in SYLLABUS.md yet.",
+            "why": "The weekly plan (written from the schedule) is not in SYLLABUS.md yet.",
+            "need": "suggested",
             "blocks": false
           },
           {
@@ -163,6 +171,7 @@
             "label": "Withheld patterns reviewed",
             "done": false,
             "why": "Nothing is withheld from students yet; review the withheld patterns.",
+            "need": "suggested",
             "blocks": false
           }
         ]
@@ -244,140 +253,156 @@
       {
         "id": "materials:course-materials-f2025:syllabus",
         "kind": "materials",
+        "check": "syllabus",
         "repo": "course-materials-f2025",
         "text": "There is no SYLLABUS.md yet.",
         "screen": "materials",
         "entry": "course-materials-f2025",
-        "optional": false,
-        "set_aside": false
-      },
-      {
-        "id": "materials:course-materials-f2025:sessions",
-        "kind": "materials",
-        "repo": "course-materials-f2025",
-        "text": "The weekly plan is not in SYLLABUS.md yet.",
-        "screen": "materials",
-        "entry": "course-materials-f2025",
+        "need": "suggested",
         "optional": true,
         "set_aside": false
       },
       {
         "id": "materials:course-materials-f2025:withheld",
         "kind": "materials",
+        "check": "withheld",
         "repo": "course-materials-f2025",
         "text": "Nothing is withheld from students yet; review the withheld patterns.",
         "screen": "materials",
         "entry": "course-materials-f2025",
+        "need": "suggested",
         "optional": true,
         "set_aside": false
       },
       {
-        "id": "materials:course-materials-f2026:sessions",
+        "id": "materials:course-materials-f2026:syllabus",
         "kind": "materials",
+        "check": "syllabus",
         "repo": "course-materials-f2026",
-        "text": "The weekly plan is not in SYLLABUS.md yet.",
+        "text": "The weekly plan (written from the schedule) is not in SYLLABUS.md yet.",
         "screen": "materials",
         "entry": "course-materials-f2026",
+        "need": "suggested",
         "optional": true,
         "set_aside": false
       },
       {
         "id": "materials:course-materials-f2026:withheld",
         "kind": "materials",
+        "check": "withheld",
         "repo": "course-materials-f2026",
         "text": "Nothing is withheld from students yet; review the withheld patterns.",
         "screen": "materials",
         "entry": "course-materials-f2026",
+        "need": "suggested",
         "optional": true,
         "set_aside": false
       },
       {
         "id": "template:assignment-1-f2025:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-1-f2025",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-1-f2025",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-1-f2026:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-1-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-1-f2026",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-2-f2025:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-2-f2025",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-2-f2025",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-4-f2026:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-4-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-4-f2026",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-5-f2026:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-5-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-5-f2026",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-6-f2026:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-6-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-6-f2026",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-7-f2026:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-7-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-7-f2026",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-8-f2026:brief",
         "kind": "template",
+        "check": "brief",
         "repo": "assignment-8-f2026",
         "text": "The brief (README.md) is not written yet.",
         "screen": "template",
         "entry": "assignment-8-f2026",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       },
       {
         "id": "template:assignment-8-f2026:starter",
         "kind": "template",
+        "check": "starter",
         "repo": "assignment-8-f2026",
         "text": "Derive has not been run yet.",
         "screen": "template",
         "entry": "assignment-8-f2026",
+        "need": "needed",
         "optional": false,
         "set_aside": false
       }
