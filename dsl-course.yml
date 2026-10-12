@@ -2,6 +2,7 @@
 #
 course_name: Deep Learning (Demo)
 course_code: E1234
+student_console: true   # the student console is being developed on this staging org
 # Deployment tier this course (and its cohorts) runs the toolkit from. The demo org
 # soaks `staging` before anything is promoted to `release`, which every other org runs.
 central_ref: main
