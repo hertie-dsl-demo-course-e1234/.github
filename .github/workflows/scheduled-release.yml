@@ -224,11 +224,12 @@ jobs:
     # API - a string this file declares rather than one GitHub composes from the matrix.
     name: autograde ${{ matrix.semester }}
     needs: [release]
-    # always(), because grading is gated on the durable snapshot marker, not on this run's
-    # release pass: a red release must not silently skip a semester's grading. The output test
-    # is the empty-matrix guard - GitHub errors on a matrix with no vectors, and a course org
-    # with no semesters registered yet is a normal state, not a failure.
-    if: always() && needs.release.outputs.semesters != '' && needs.release.outputs.semesters != '[]'
+    # !cancelled(), because grading is gated on the durable snapshot marker, not on this
+    # run's release pass: a red release must not silently skip a semester's grading - but a
+    # run an operator CANCELLED must not go on to run student code for two hours. The output
+    # test is the empty-matrix guard - GitHub errors on a matrix with no vectors, and a
+    # course org with no semesters registered yet is a normal state, not a failure.
+    if: "!cancelled() && needs.release.outputs.semesters != '' && needs.release.outputs.semesters != '[]'"
     strategy:
       # One semester's grading failure must not cancel the others' - they share nothing.
       fail-fast: false
@@ -282,7 +283,7 @@ jobs:
     # matrix it reports on, so each semester keeps its own failure issue and a green semester
     # never closes a red one's.
     needs: [release, autograde]
-    if: always() && needs.release.outputs.semesters != '' && needs.release.outputs.semesters != '[]'
+    if: "!cancelled() && needs.release.outputs.semesters != '' && needs.release.outputs.semesters != '[]'"
     strategy:
       fail-fast: false
       matrix:
@@ -330,11 +331,13 @@ jobs:
           # `|| true` and a `head`: under `bash -e` a transient search failure would
           # otherwise abort the job that exists to report, and a re-run reads its OWN
           # attempt. A null conclusion is the API lagging behind a leg `needs:` says has
-          # finished, so it is asked again for about a minute before it is believed.
+          # finished, so it is asked again for about a minute before it is believed. A leg
+          # cancelled with no steps never started - a later run's leg took its place in the
+          # semester's queue - so it reads as skipped: nothing ran, nothing failed.
           for pause in 0 5 10 20 30; do
             sleep "$pause"
             row=$(gh api "repos/$REPO/actions/runs/$RUN_ID/attempts/$ATTEMPT/jobs" --paginate \
-              --jq ".jobs[] | select(.name == \"autograde $SEMESTER\") | \"\(.conclusion) \(.id)\"" | head -n 1) || true
+              --jq ".jobs[] | select(.name == \"autograde $SEMESTER\") | \"\(if .conclusion == \"cancelled\" and ((.steps // []) | length) == 0 then \"skipped\" else .conclusion end) \(.id)\"" | head -n 1) || true
             if [ "${row%% *}" != "null" ]; then break; fi
           done
           if [ -z "$row" ]; then
