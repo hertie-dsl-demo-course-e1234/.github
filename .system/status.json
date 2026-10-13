@@ -166,68 +166,57 @@
       {
         "repo": "assignment-1-f2025",
         "state": "ready",
-        "starter": "derived",
-        "starter_applies": false
+        "starter": "none"
       },
       {
         "repo": "assignment-1-f2026",
         "state": "ready",
-        "starter": "derived",
-        "starter_applies": false
+        "starter": "none"
       },
       {
         "repo": "assignment-2-f2025",
         "state": "todo",
-        "starter": "derived",
-        "starter_applies": true
+        "starter": "derived"
       },
       {
         "repo": "assignment-2-f2026",
         "state": "ready",
-        "starter": "derived",
-        "starter_applies": false
+        "starter": "none"
       },
       {
         "repo": "assignment-3-f2025",
         "state": "ready",
-        "starter": "derived",
-        "starter_applies": false
+        "starter": "none"
       },
       {
         "repo": "assignment-3-project-f2026",
         "state": "ready",
-        "starter": "derived",
-        "starter_applies": false
+        "starter": "none"
       },
       {
         "repo": "assignment-4-f2026",
         "state": "todo",
-        "starter": "derived",
-        "starter_applies": true
+        "starter": "derived"
       },
       {
         "repo": "assignment-5-f2026",
         "state": "todo",
-        "starter": "derived",
-        "starter_applies": true
+        "starter": "derived"
       },
       {
         "repo": "assignment-6-f2026",
         "state": "todo",
-        "starter": "derived",
-        "starter_applies": true
+        "starter": "derived"
       },
       {
         "repo": "assignment-7-f2026",
         "state": "ready",
-        "starter": "derived",
-        "starter_applies": false
+        "starter": "none"
       },
       {
         "repo": "assignment-8-f2026",
         "state": "todo",
-        "starter": "derived",
-        "starter_applies": true
+        "starter": "derived"
       }
     ],
     "semesters": [
