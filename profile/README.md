@@ -41,6 +41,7 @@ List of all repositories associated with the course org. _Auto-discovered from t
 | [assignment-8-f2026](https://github.com/hertie-dsl-demo-course-e1234/assignment-8-f2026) | private | Policy brief in LaTeX |
 | [assignment-test](https://github.com/hertie-dsl-demo-course-e1234/assignment-test) | private | test |
 | [assignment-test-2](https://github.com/hertie-dsl-demo-course-e1234/assignment-test-2) | private | test-2 |
+| [assignment-test-3](https://github.com/hertie-dsl-demo-course-e1234/assignment-test-3) | private | test-3 |
 | [course-materials-f2025](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2025) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [course-materials-f2026](https://github.com/hertie-dsl-demo-course-e1234/course-materials-f2026) | public | Course materials (lectures/labs/readings/datasets/other) by session |
 | [hertie-dsl-demo-course-e1234.github.io](https://github.com/hertie-dsl-demo-course-e1234/hertie-dsl-demo-course-e1234.github.io) | public | [do not touch]: Course website (auto-deployed) |
