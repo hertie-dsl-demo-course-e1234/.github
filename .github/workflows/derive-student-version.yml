@@ -33,9 +33,6 @@ on:
           - assignment-6-f2026
           - assignment-7-f2026
           - assignment-8-f2026
-          - assignment-test
-          - assignment-test-2
-          - assignment-test-3
       preview:
         description: "Preview - list the files and how much would be stripped out of each"
         type: boolean
