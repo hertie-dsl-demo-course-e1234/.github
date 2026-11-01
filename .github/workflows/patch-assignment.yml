@@ -41,6 +41,7 @@ on:
           - assignment-7-f2026
           - assignment-8-f2026
           - assignment-test
+          - assignment-test-2
       path:
         description: "File or folder on the template's default branch to push (e.g. starter.ipynb, or data/)"
         required: true
