@@ -38,6 +38,7 @@ on:
           - assignment-6-f2026
           - assignment-7-f2026
           - assignment-8-f2026
+          - assignment-test
       assignment:
         description: "Only if two schedule.yml entries share this template: the one to act on (its key)"
         required: false
