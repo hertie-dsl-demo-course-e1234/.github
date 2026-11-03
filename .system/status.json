@@ -1,7 +1,7 @@
 {
   "schema": "dsl.status/1",
   "inputs": {
-    "dsl-course.yml": "595f7dcb135182e039b74e9706bff1947cf8570d",
+    "course.yml": "200682c8f1d5e7327f7124ff482bc7aab376c091",
     "semesters.yml": "5072b80d60f1554622a49e7f423e015eb4ffbc56"
   },
   "horizon": {
@@ -42,55 +42,58 @@
       "missing": null,
       "suggestions": 4
     },
+    "defaults": {
+      "timezone": {
+        "value": "Europe/Berlin",
+        "source": "institution"
+      },
+      "late_window_days": {
+        "value": 10,
+        "source": "course"
+      },
+      "late_penalty_per_day": {
+        "value": "10%",
+        "source": "course"
+      },
+      "max_team_size": {
+        "value": 4,
+        "source": "course"
+      },
+      "assignment_repo_visibility": {
+        "value": "private",
+        "source": "institution"
+      },
+      "archive_grace_days": {
+        "value": 60,
+        "source": "institution"
+      },
+      "materials_repo": {
+        "value": "materials",
+        "source": "institution"
+      },
+      "autosync_released_edits": {
+        "value": false,
+        "source": "institution"
+      },
+      "marks_per_question": {
+        "value": true,
+        "source": "institution"
+      },
+      "team_formation": {
+        "value": "none",
+        "source": "institution"
+      }
+    },
     "materials": [
       {
         "repo": "course-materials-f2025",
         "state": "ready",
         "checks": [
           {
-            "id": "kind_folder",
-            "label": "At least one folder of a content kind",
-            "done": true,
-            "why": null,
-            "need": "needed",
-            "detail": [
-              {
-                "kind": "lecture",
-                "folders": [
-                  "lectures"
-                ]
-              },
-              {
-                "kind": "lab",
-                "folders": [
-                  "labs"
-                ]
-              },
-              {
-                "kind": "readings",
-                "folders": [
-                  "readings"
-                ]
-              },
-              {
-                "kind": "exam",
-                "folders": []
-              },
-              {
-                "kind": "drop-in",
-                "folders": []
-              },
-              {
-                "kind": "other",
-                "folders": []
-              }
-            ]
-          },
-          {
             "id": "syllabus",
             "label": "Syllabus",
             "done": false,
-            "why": "There is no SYLLABUS.md yet.",
+            "why": "SYLLABUS.pdf is not Markdown: copy the weekly plan and paste it in.",
             "need": "suggested"
           },
           {
@@ -106,45 +109,6 @@
         "repo": "course-materials-f2026",
         "state": "ready",
         "checks": [
-          {
-            "id": "kind_folder",
-            "label": "At least one folder of a content kind",
-            "done": true,
-            "why": null,
-            "need": "needed",
-            "detail": [
-              {
-                "kind": "lecture",
-                "folders": [
-                  "lectures"
-                ]
-              },
-              {
-                "kind": "lab",
-                "folders": [
-                  "labs"
-                ]
-              },
-              {
-                "kind": "readings",
-                "folders": [
-                  "readings"
-                ]
-              },
-              {
-                "kind": "exam",
-                "folders": []
-              },
-              {
-                "kind": "drop-in",
-                "folders": []
-              },
-              {
-                "kind": "other",
-                "folders": []
-              }
-            ]
-          },
           {
             "id": "syllabus",
             "label": "Syllabus",
@@ -229,7 +193,7 @@
         "kind": "materials",
         "check": "syllabus",
         "repo": "course-materials-f2025",
-        "text": "There is no SYLLABUS.md yet.",
+        "text": "SYLLABUS.pdf is not Markdown: copy the weekly plan and paste it in.",
         "screen": "materials",
         "entry": "course-materials-f2025",
         "need": "suggested",
