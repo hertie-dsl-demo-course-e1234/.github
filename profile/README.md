@@ -11,7 +11,7 @@ The substantive repos of this org are private (not accessible to enrolled studen
 
 > **Faculty & instructors - start here:** New to the platform?
 > Follow the step-by-step
-> **[workflow runbooks](https://github.com/hertie-data-science-lab/dsl-teaching-toolkit/blob/main/docs/README.md)**.
+> **[workflow runbooks](https://github.com/hertie-data-science-lab/dsl-teaching-toolkit/blob/preview/docs/README.md)**.
 > The sections below are a live index of this org's semesters, repositories, and actions.
 
 ## Semesters
