@@ -6,7 +6,7 @@ course:
   name: Deep Learning (Demo)
   code: E1234
   description: A public demonstration course run by the Hertie Data Science Lab - one course org and two cohort orgs showing the teaching toolkit end to end.
-  toolkit_version_ref: preview
+  toolkit_version_ref: main
   student_console: true
 
 people:
